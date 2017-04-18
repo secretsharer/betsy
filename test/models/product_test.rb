@@ -24,4 +24,9 @@ describe Product do
     products(:apple).valid?.must_equal true
     products(:no_price).valid?.must_equal false
   end
+
+  it "the price must be greater than 0" do
+    products(:banana).valid?.must_equal true
+    products(:invalid_price).valid?.must_equal false
+  end
 end
