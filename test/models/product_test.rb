@@ -8,6 +8,10 @@ describe Product do
     product.price = 5.00
     product.quantity = 4
     product.valid?.must_equal true
+  end
 
+  it "must have name present in product" do
+    products(:apple).valid?.must_equal true
+    products(:no_name).valid?.must_equal false
   end
 end
