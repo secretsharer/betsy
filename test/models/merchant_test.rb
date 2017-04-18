@@ -1,7 +1,7 @@
 require "test_helper"
 
 describe Merchant do
-  let(:merchant) { Merchant.new }
+  # let(:merchant) { Merchant.new }
 
   describe 'validations' do
     it 'requires a username to be valid' do
@@ -10,14 +10,12 @@ describe Merchant do
       merchant.valid?.must_equal false
       merchant.errors.messages.must_include :username
       #merchant with username is good
-      merchant = merchants(:dan)
-      merchant.valid?.must_equal true
-      merchant.errors.message.wont_include :username
+      merchants(:dan).valid?.must_equal true
+      merchants(:dan).errors.messages.wont_include :username
     end
 
     it 'requires a unique username to be valid' do
       dan = merchants(:dan)
-
       user = Merchant.new(username: 'dan', email: 'ho@ada.org')
       result = user.save
       result.must_equal false
@@ -29,9 +27,8 @@ describe Merchant do
       merchant.valid?.must_equal false
       merchant.errors.messages.must_include :email
 
-      merchant = merchants(:dan)
-      merchant.valid?.must_equal true
-      merchant.errors.message.wont_include :email
+      merchants(:dan).valid?.must_equal true
+      merchants(:dan).errors.messages.wont_include :email
     end
 
     it 'requires a unique email address to be valid' do

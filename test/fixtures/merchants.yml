@@ -10,10 +10,18 @@ dan:
 # column: value
 #
 duplicateusername:
-  username: dan
+  username: danny
   email: imposter@ada.org
 # column: value
 
+duplicateusername2:
+  username: danny
+  email: hi@ada.org
+
 duplicateemail:
   username: kari
-  email: dan@ada.org
+  email: kari@ada.org
+
+duplicateemail2:
+  username: kary
+  email: kari@ada.org
