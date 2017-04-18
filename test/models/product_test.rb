@@ -14,4 +14,8 @@ describe Product do
     products(:apple).valid?.must_equal true
     products(:no_name).valid?.must_equal false
   end
+
+  it "must have a unique name" do
+    products(:not_unique).valid?.must_equal false
+  end
 end
