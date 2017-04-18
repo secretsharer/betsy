@@ -17,7 +17,11 @@ describe Review do
   it "rating should be between 1-5" do
     reviews(:has_rating).valid?.must_equal true
     reviews(:rating_not_between).valid?.must_equal false
+    reviews(:negative_rating).valid?.must_equal false
+  end
 
+  it "should be an integer" do
+    reviews(:not_integer).valid?.must_equal false
   end
 
 end

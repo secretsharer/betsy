@@ -12,3 +12,9 @@ no_rating:
 
 rating_not_between:
   rating: 10
+
+negative_rating:
+  rating: -1
+
+not_integer:
+  rating: "bananas"
