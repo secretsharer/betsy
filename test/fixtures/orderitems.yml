@@ -2,9 +2,14 @@
 
 one:
   quantity: 1
+  order: one
+  product: apple
 
 two:
   quantity: 1
+  order: one
+  product: banana
+
 
 zero_qty:
   quantity: 0

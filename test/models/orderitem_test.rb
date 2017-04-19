@@ -29,11 +29,14 @@ describe Orderitem do
   end
 
   it 'must belong to an order' do
-    skip
+    apple = orderitems(:one)
+    apple.valid?.must_equal true
   end
 
   it 'must belong to a Product' do
     skip
   end
+
+
 
 end
