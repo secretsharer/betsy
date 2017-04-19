@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20170418225909) do
     t.string   "name"
     t.float    "price"
     t.integer  "quantity"
+  end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
