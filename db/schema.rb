@@ -10,17 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170418234636) do
+ActiveRecord::Schema.define(version: 20170419223842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "orderitems", force: :cascade do |t|
-    t.integer  "quantity"
+<<<<<<< HEAD
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "category_product", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "product_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["category_id"], name: "index_category_product_on_category_id", using: :btree
+    t.index ["product_id"], name: "index_category_product_on_product_id", using: :btree
+  end
+
+=======
+>>>>>>> 935d66c52e20241f9c1eb3a0d581b040bdc6e2a0
   create_table "merchants", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -28,15 +40,21 @@ ActiveRecord::Schema.define(version: 20170418234636) do
     t.string   "username"
   end
 
-  create_table "products", force: :cascade do |t|
-    t.string   "name"
-    t.float    "price"
+  create_table "orderitems", force: :cascade do |t|
     t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string  "name"
+    t.float   "price"
+    t.integer "quantity"
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -6,6 +6,10 @@ require "minitest/reporters"  # for Colorized output
 require "simplecov"
 Simplecov.start
 
+require "simplecov"
+
+SimpleCov.start
+
 #  For colorful output!
 Minitest::Reporters.use!(
   Minitest::Reporters::SpecReporter.new,
