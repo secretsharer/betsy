@@ -31,12 +31,27 @@ describe Orderitem do
   it 'must belong to an order' do
     apple = orderitems(:one)
     apple.valid?.must_equal true
+
+    no_order = orderitems(:no_order)
+    no_order.valid?.must_equal false
   end
 
-  it 'must belong to a Product' do
+  it "Must belong to an order that exists" do
     skip
   end
 
+
+  it 'must belong to a Product' do
+    banana = orderitems(:two)
+    banana.valid?.must_equal true
+
+    no_product = orderitems(:no_product)
+    no_product.valid?.must_equal false
+  end
+
+  it "must belong to a product that exists" do
+    skip
+  end
 
 
 end
