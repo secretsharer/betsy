@@ -7,6 +7,7 @@ describe Product do
     product.name = "TestName"
     product.price = 5.00
     product.quantity = 4
+    product.merchant = merchants(:dan)
     product.valid?.must_equal true
   end
 
