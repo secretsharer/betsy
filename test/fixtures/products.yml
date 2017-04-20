@@ -14,6 +14,7 @@ banana:
   name: "banana"
   price: 5.00
   quantity: 10
+  merchant: dan
 
 no_price:
   name: "Dragonfruit"
@@ -37,6 +38,6 @@ not_unique_again:
   name: "Product"
   price: 4.00
   quantity: 7
-  
+
 
 # column: value

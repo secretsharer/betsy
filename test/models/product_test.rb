@@ -29,4 +29,8 @@ describe Product do
     products(:banana).valid?.must_equal true
     products(:invalid_price).valid?.must_equal false
   end
+
+  it "must be able to have a merchant associated with it" do
+    products(:banana).merchant.must_equal merchants(:dan)
+  end
 end
