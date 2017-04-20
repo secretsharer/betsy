@@ -54,4 +54,8 @@ describe Orderitem do
     fakeproduct.valid?.must_equal false
   end
 
+  it 'quantity cannot be more than product quantity' do
+    toomany = orderitems(:toomany)
+    toomany.valid?.must_equal false
+  end
 end

@@ -36,3 +36,8 @@ no_order:
 no_product:
   quantity: 2
   order: two
+
+toomany:
+  quantity: 6
+  order: one
+  product: apple
