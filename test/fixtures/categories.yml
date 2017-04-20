@@ -1,7 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: haunt
 
 two:
-  name: MyString
+  name: slime
+
+duplicate1:
+  name: headstone
+
+duplicate2:
+  name: headstone
