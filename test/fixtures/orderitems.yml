@@ -10,7 +10,15 @@ two:
   order: one
   product: banana
 
+fakeorder:
+  quantity: 1
+  order: fake
+  product: apple
 
+fakeproduct:
+  quantity: 1
+  order: one
+  product: grapes
 
 zero_qty:
   quantity: 0

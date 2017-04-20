@@ -37,9 +37,9 @@ describe Orderitem do
   end
 
   it "Must belong to an order that exists" do
-    skip
+    fakeorder = orderitems(:fakeorder)
+    fakeorder.valid?.must_equal false
   end
-
 
   it 'must belong to a Product' do
     banana = orderitems(:two)
@@ -50,8 +50,8 @@ describe Orderitem do
   end
 
   it "must belong to a product that exists" do
-    skip
+    fakeproduct = orderitems(:fakeproduct)
+    fakeproduct.valid?.must_equal false
   end
-
 
 end
