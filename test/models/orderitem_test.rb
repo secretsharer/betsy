@@ -55,7 +55,14 @@ describe Orderitem do
   end
 
   it 'quantity cannot be more than product quantity' do
+    skip#to run this test we need the orderitem model to check that the product has enough stock
     toomany = orderitems(:toomany)
     toomany.valid?.must_equal false
+  end
+
+  it "product stock goes down by that quantity" do
+    skip #need routes to test this?
+    orderitem = orderitem(:one)
+    # proc {}.must_change :apple.quantity -1 # <- check syntax
   end
 end
