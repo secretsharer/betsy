@@ -40,4 +40,17 @@ describe ProductsController do
     must_respond_with :success
   end
 
+  it "should create a new product" do
+    proc   {
+      post merchant_products_path(merchants(:dan).id), params: { product:
+        { name: "new product",
+          price: 5.00,
+          quantity: 2
+     }  }
+   }.must_change 'Product.count', 1
+
+   must_respond_with :redirect
+   must_redirect_to merchant_products_path(merchants(:dan).id)
+  end
+
 end

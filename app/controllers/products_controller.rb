@@ -32,10 +32,20 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def create
+    product = Product.new product_params
+    product.merchant_id = params[:merchant_id]
+    product.save
+
+    if product.save
+      redirect_to merchant_products_path(params[:merchant_id])
+    end
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :quantity)
+    params.require(:product).permit(:name, :price, :quantity, :merchant_id)
   end
 
   def find_product
