@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :merchants do
-    resources :products, only: [:index]
+    resources :products, only: [:index, :new]
   end
 
   resources :products

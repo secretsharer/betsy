@@ -35,4 +35,9 @@ describe ProductsController do
   }.must_change 'Product.count', -1
   end
 
+  it "should get the new page" do
+    get new_merchant_product_path(merchants(:dan).id)
+    must_respond_with :success
+  end
+
 end
