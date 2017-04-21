@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_action :find_merchant, only [:show, :edit, :update]
+  before_action :find_merchant, only: [:show, :edit, :update]
 
   def index
     @merchants = Merchant.all
@@ -7,6 +7,18 @@ class MerchantsController < ApplicationController
 
   def new
     @merchant = Merchant.new
+  end
+
+  def create
+    @merchant = Merchant.create merchant_params
+
+    unless @merchant.id == nil
+      flash[:success] = "Merchant #{@merchant.name} successfully created"
+      redirect_to merchants_path
+    else
+      flash.now[:error] = "Merchant not created; see below for specifics"
+      render "new"
+    end
   end
 
   def show
@@ -34,6 +46,7 @@ class MerchantsController < ApplicationController
 
     redirect_to merchants_path
   end
+
 
   private
 
