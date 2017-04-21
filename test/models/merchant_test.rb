@@ -3,7 +3,7 @@ require "test_helper"
 describe Merchant do
   # let(:merchant) { Merchant.new }
 
-  describe 'validations' do
+  describe 'validations on merchant' do
     it 'requires a username to be valid' do
       #merchant with no username is bad
       merchant = Merchant.new(email: 'hey@ada.org')
@@ -40,4 +40,35 @@ describe Merchant do
       user.errors.messages.must_include :email
     end
   end
+
+  describe 'relationships for merchant' do
+    it "can have 0 products" do
+      #has no products
+      sam = merchants(:sam)
+      sam.valid?.must_equal true
+    end
+
+    it "can have 1 product" do
+      rory = merchants(:rory)
+      rory.valid?.must_equal true
+      rory.products.length.must_equal 1
+    end
+
+    it "can have more than 1 product" do
+      dan = merchants(:dan)
+      dan.valid?.must_equal true
+      dan.products.length.must_equal 7
+    end
+
+    it "products can't belong to more than one merchant" do
+      rory = merchants(:rory)
+      rory.valid?.must_equal true
+
+      orange2 = products(:orange2)
+      orange2.merchant = merchants(:miles)
+      orange2.valid?.must_equal false
+    end
+
+  end
+
 end
