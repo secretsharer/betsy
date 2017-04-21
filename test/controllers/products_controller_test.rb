@@ -26,6 +26,13 @@ describe ProductsController do
     must_respond_with :found
     must_respond_with :redirect
     must_redirect_to product_path
-
   end
+
+  it "should delete a product" do
+  proc {
+    # run the delete verb on the post_path with a param equal to 1
+  delete product_path(products(:banana).id)
+  }.must_change 'Product.count', -1
+  end
+
 end
