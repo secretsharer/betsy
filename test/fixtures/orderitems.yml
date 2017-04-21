@@ -2,9 +2,15 @@
 
 one:
   quantity: 1
+  order: one
+  product: apple
 
 two:
   quantity: 1
+  order: one
+  product: banana
+
+
 
 zero_qty:
   quantity: 0
@@ -14,3 +20,11 @@ float_qty:
 
 neg_qty:
   quantity: -4
+
+no_order:
+  quantity: 1
+  product: banana
+
+no_product:
+  quantity: 2
+  order: two
