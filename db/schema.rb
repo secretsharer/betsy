@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(version: 20170421013830) do
     t.string  "name"
     t.float   "price"
     t.integer "quantity"
+    t.integer "merchant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|

@@ -7,6 +7,7 @@ describe Product do
     product.name = "TestName"
     product.price = 5.00
     product.quantity = 4
+    product.merchant = merchants(:dan)
     product.valid?.must_equal true
   end
 
@@ -28,5 +29,9 @@ describe Product do
   it "the price must be greater than 0" do
     products(:banana).valid?.must_equal true
     products(:invalid_price).valid?.must_equal false
+  end
+
+  it "must be able to have a merchant associated with it" do
+    products(:banana).merchant.must_equal merchants(:dan)
   end
 end

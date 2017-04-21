@@ -9,6 +9,7 @@ apple:
   name: "apple"
   price: 1.00
   quantity: 5
+  merchant: dan
 # column: value
 #
 banana:
@@ -16,34 +17,41 @@ banana:
   name: "banana"
   price: 5.00
   quantity: 10
+  merchant: dan
 
 no_price:
   id: 3
   name: "Dragonfruit"
   quantity: 15
+  merchant: dan
 
 invalid_price:
   id: 4
   name: "Guava"
   price: 0.00
   quantity: 1
+  merchant: dan
 
 no_name:
   id: 5
   price: 3.00
   quantity: 5
+  merchant: dan
 
 not_unique:
   id: 6
   name: "Product"
   price: 5.00
   quantity: 2
+  merchant: dan
 
 not_unique_again:
   id: 7
   name: "Product"
   price: 4.00
   quantity: 7
+  merchant: dan
+
 
 
 # column: value
