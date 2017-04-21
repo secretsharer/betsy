@@ -10,6 +10,7 @@ apple:
   price: 1.00
   quantity: 5
   merchant: dan
+  quantity: 1
 # column: value
 #
 banana:
@@ -18,12 +19,16 @@ banana:
   price: 5.00
   quantity: 10
   merchant: dan
+  quantity: 1
+
 
 no_price:
   id: 3
   name: "Dragonfruit"
   quantity: 15
   merchant: dan
+  quantity: 1
+
 
 invalid_price:
   id: 4
@@ -31,12 +36,16 @@ invalid_price:
   price: 0.00
   quantity: 1
   merchant: dan
+  quantity: 1
+
 
 no_name:
   id: 5
   price: 3.00
   quantity: 5
   merchant: dan
+  quantity: 1
+
 
 not_unique:
   id: 6
@@ -44,6 +53,8 @@ not_unique:
   price: 5.00
   quantity: 2
   merchant: dan
+  quantity: 1
+
 
 not_unique_again:
   id: 7
@@ -51,6 +62,24 @@ not_unique_again:
   price: 4.00
   quantity: 7
   merchant: dan
+  quantity: 1
+
+no_quantity:
+  name: "Product"
+  price: 4.00
+  quantity: 7
+  merchant: dan
+
+zero_quantity:
+  name: "Product"
+  price: 4.00
+  quantity: 7
+  merchant: dan
+  quantity: 0
+
+
+
+
 
 
 
