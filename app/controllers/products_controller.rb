@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-
     if @product.update product_params
       redirect_to product_path
     else

@@ -20,4 +20,12 @@ describe ProductsController do
     get edit_product_path(products(:apple).id)
     must_respond_with :success
   end
+
+  it "update should update a product or render edit" do
+    patch product_path(products(:banana).id), params: {product: { quantity: 2 } }
+    must_respond_with :found
+    must_respond_with :redirect
+    must_redirect_to product_path
+
+  end
 end
