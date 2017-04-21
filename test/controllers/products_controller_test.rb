@@ -53,4 +53,14 @@ describe ProductsController do
    must_redirect_to merchant_products_path(merchants(:dan).id)
   end
 
+  it "should not create an invalid product" do
+    proc   {
+      post merchant_products_path(merchants(:dan).id), params: { product:
+        { name: "new product",
+          price: 5.00,
+          quantity: 0
+     }  }
+   }.must_change 'Product.count', 0
+  end
+
 end
