@@ -10,4 +10,9 @@ describe ProductsController do
     get merchant_products_path(merchants(:dan).id)
     must_respond_with :success
   end
+
+  it "should show an individual product" do
+    get product_path(products(:apple).id)
+    must_respond_with :success
+  end
 end
