@@ -32,6 +32,7 @@ class MerchantsController < ApplicationController
   def update
     @merchant.name = merchant_params[:name]
     @merchant.email  = merchant_params[:email]
+    @merchant.description = merchant_params[:description]
 
     if @merchant.save
       redirect_to merchant_path(@merchant.id)
@@ -51,7 +52,7 @@ class MerchantsController < ApplicationController
   private
 
   def merchant_params
-    params.require(:merchant).permit(:name, :email)
+    params.require(:merchant).permit(:name, :email, :description)
   end
 
   def find_merchant
