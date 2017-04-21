@@ -23,7 +23,7 @@ class MerchantsController < ApplicationController
 
   def show
     if !@merchant
-      render_404 #write this method in application_controller
+      render_404
     end
   end
 
@@ -56,6 +56,6 @@ class MerchantsController < ApplicationController
   end
 
   def find_merchant
-    @merchant = Merchant.find params[:id]
+    @merchant = Merchant.find_by_id params[:id]
   end
 end
