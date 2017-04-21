@@ -2,12 +2,24 @@
 
 one:
   name: haunt
+  id: 1
 
 two:
   name: slime
+  id: 2
 
 duplicate1:
   name: headstone
+  id: 3
 
 duplicate2:
   name: headstone
+  id: 4
+
+nocategory:
+  name:
+  id: 5
+
+noproducts:
+  name: boo
+  id: 6

@@ -1,9 +1,47 @@
 require "test_helper"
 
 describe Category do
-  let(:category) { Category.new }
+  describe "validations" do
+    it "must have a name to be valid" do
+      category = categories(:nocategory)
+      category.valid?.must_equal false
+      category.errors.messages.must_include :name
 
-  it "must be valid" do
-    value(category).must_be :valid?
+      acceptable = categories(:one)
+      acceptable.valid?.must_equal true
+      acceptable.errors.messages.wont_include :name
+
+      no_category = categories(:nocategory)
+      no_category.valid?.must_equal false
+      no_category.errors.messages.must_include :name
+    end
+
+    it "must have a unique name to be valid" do
+      duplicate1 = categories(:duplicate1)
+
+      new_category = Category.new(name: "headstone")
+      result = new_category.save
+      # result.must_equal false
+      new_category.errors.messages.must_include :name
+    end
+
+  end
+
+  describe "relations" do
+    it "can access products of a category" do
+      category = categories(:one)
+
+      category.products.wont_be :empty?
+      category.products.size.must_equal 2
+      category.products.first.name.must_equal "apple"
+      category.products.last.name.must_equal "banana"
+    end
+
+    it "must be empty when a category has no products" do
+      noproducts = categories(:noproducts)
+
+      noproducts.products.must_be :empty?
+    end
+    # in product_test: can access categories of a product
   end
 end

@@ -5,38 +5,45 @@
 # below each fixture, per the syntax in the comments below
 #
 apple:
+  id: 1
   name: "apple"
   price: 1.00
   quantity: 5
 # column: value
 #
 banana:
+  id: 2
   name: "banana"
   price: 5.00
   quantity: 10
 
 no_price:
+  id: 3
   name: "Dragonfruit"
   quantity: 15
 
 invalid_price:
+  id: 4
   name: "Guava"
   price: 0.00
   quantity: 1
 
 no_name:
+  id: 5
   price: 3.00
   quantity: 5
 
 not_unique:
+  id: 6
   name: "Product"
   price: 5.00
   quantity: 2
 
 not_unique_again:
+  id: 7
   name: "Product"
   price: 4.00
   quantity: 7
-  
+
 
 # column: value
