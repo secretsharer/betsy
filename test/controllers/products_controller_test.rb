@@ -15,4 +15,9 @@ describe ProductsController do
     get product_path(products(:apple).id)
     must_respond_with :success
   end
+
+  it "should get an edit page" do
+    get edit_product_path(products(:apple).id)
+    must_respond_with :success
+  end
 end
