@@ -6,15 +6,20 @@
 #
 has_rating:
   rating: 4
+  product: apple
 
 no_rating:
   rating: nil
+  product: apple
 
 rating_not_between:
   rating: 10
+  product: apple
 
 negative_rating:
   rating: -1
+  product: apple
 
 not_integer:
   rating: "bananas"
+  product: banana
