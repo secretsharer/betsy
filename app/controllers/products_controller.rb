@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
    before_action :find_product, only: [:show, :edit, :update]
+   #before_action :require_login
 
   def index
     if params[:merchant_id]
