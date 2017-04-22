@@ -14,7 +14,7 @@ apple:
 # column: value
 #
 banana:
-  id: 2
+  # id: 2
   name: "banana"
   price: 5.00
   quantity: 10
@@ -23,7 +23,7 @@ banana:
 
 
 no_price:
-  id: 3
+  # id: 3
   name: "Dragonfruit"
   quantity: 15
   merchant: dan
@@ -31,7 +31,7 @@ no_price:
 
 
 invalid_price:
-  id: 4
+  # id: 4
   name: "Guava"
   price: 0.00
   quantity: 1
@@ -40,7 +40,7 @@ invalid_price:
 
 
 no_name:
-  id: 5
+  # id: 5
   price: 3.00
   quantity: 5
   merchant: dan
@@ -48,7 +48,7 @@ no_name:
 
 
 not_unique:
-  id: 6
+  # id: 6
   name: "Product"
   price: 5.00
   quantity: 2
@@ -57,7 +57,7 @@ not_unique:
 
 
 not_unique_again:
-  id: 7
+  # id: 7
   name: "Product"
   price: 4.00
   quantity: 7
