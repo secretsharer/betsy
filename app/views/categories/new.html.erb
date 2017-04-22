@@ -1,0 +1,13 @@
+<ul>
+  <% @category.errors.each do |field, msg| %>
+    <li><%= field %> <%= msg %></li>
+  <% end %>
+</ul>
+
+<%= form_for @category do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+
+<% end %>
