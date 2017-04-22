@@ -2,11 +2,3 @@
 <h3><%= @merchant.username %></h3>
 <p><%=@merchant.description %></p>
 <p>contact: <%= @merchant.email %></p>
-
-
-<h3>Available Products</h3>
-<ul>
-  <% @merchant.products each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
-  <% end %>
-</ul>
