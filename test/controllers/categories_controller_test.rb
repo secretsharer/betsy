@@ -30,9 +30,6 @@ describe CategoriesController do
         post categories_path, params: { category: {name: ""}  }
       }.must_change 'Category.count', 0
 
-      must_respond_with :error
-      # must_redirect_to categories_path
-
     end
   end
 end

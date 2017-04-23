@@ -3,7 +3,7 @@
 <% @categories.each do |category| %>
   <h4>Name: <%= category.name %></h4>
   <ul>
-    <li><%= link_to "Products", category_products_path(merchant) %></li>
+    <li><%= link_to "Products", products_path(category_id: category.id) %></li>
   </ul>
 <% end %>
 </ul>
