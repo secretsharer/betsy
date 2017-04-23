@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'order_items/index'
+
+  get 'orderitem/index'
+
   resources :merchants do
     resources :products, only: [:index]
   end
