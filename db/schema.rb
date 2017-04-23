@@ -54,10 +54,12 @@ ActiveRecord::Schema.define(version: 20170422143427) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string  "name"
-    t.float   "price"
-    t.integer "quantity"
-    t.integer "merchant_id"
+    t.string   "name"
+    t.float    "price"
+    t.integer  "quantity"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "merchant_id"
   end
 
   create_table "reviews", force: :cascade do |t|
