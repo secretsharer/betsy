@@ -42,3 +42,32 @@ merchants = [
 merchants.each do |merchant|
   Merchant.create(merchant)
 end
+
+
+products = [
+  { name: "ghost hat",
+    price: 4.50,
+    quantity: 10,
+    merchant_id: 2,
+    description: "a beautiful spooky hat"
+  },
+
+  { name: "haunted house",
+    price: 300,
+    quantity: 1,
+    merchant_id: 4,
+    description: "move-in ready"
+  },
+
+  { name: "purple crayon",
+    price: 2.75,
+    quantity: 15,
+    merchant_id: 5,
+    description: "made from high quality wax"
+
+  },
+]
+
+products.each do |product|
+  Product.create(product)
+end

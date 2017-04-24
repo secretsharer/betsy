@@ -1,0 +1,17 @@
+<h3>GHOSTY</h3>
+
+
+<ul>
+
+
+<% @products.each do |product| %>
+  <li><%= link_to product.name, product_path(product) %></li>
+  <p>Merchant: <%= link_to product.merchant.username, merchant_path(product.merchant) %></p>
+  <p><%= product.description %></p>
+  <p>Cost: <%= product.price %></p>
+  <p><%= product.quantity %> in stock</p>
+  <p>TBD: Add product categories</p>
+  <p>TBD: Add to Cart Link</p>
+<% end %>
+
+</ul>
