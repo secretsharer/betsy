@@ -3,9 +3,6 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  get 'order_items/index'
-
-  get 'orderitem/index'
 
   resources :merchants do
     resources :products, only: [:index, :new, :create]

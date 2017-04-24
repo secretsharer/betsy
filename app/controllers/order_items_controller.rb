@@ -15,6 +15,7 @@ class OrderItemsController < ApplicationController
   end
 
   def update
+    
   end
 
   def destroy
