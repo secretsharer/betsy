@@ -2,20 +2,23 @@ class OrderItemsController < ApplicationController
 
 
   def create
-    if Product.in_stock(params[:product_id], 1)
+
+    if Product.in_stock(params[:order_items][:product_id], params[:order_items][:quantity])
       @orderitem = Orderitem.new
-      @orderitem.product_id = params[:product_id]
-      @orderitem.quantity = 1
+      @orderitem.product_id = params[:order_items][:product_id]
+      @orderitem.quantity = params[:order_items][:quantity]
       @orderitem.order_id = current_order.id
       @orderitem.save
+      raise
     else
       flash[:error] = "Not enough product in stock"
     end
-      redirect_to product_path(params[:product_id])
+      flash[:success] = "Item added to cart"
+      redirect_to product_path(params[:order_items][:product_id])
   end
 
   def update
-    
+
   end
 
   def destroy
