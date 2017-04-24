@@ -30,11 +30,13 @@ describe Category do
   describe "relations" do
     it "can access products of a category" do
       category = categories(:one)
-
+      category.products << products(:banana)
+      category.products << products(:apple)
       category.products.wont_be :empty?
       category.products.size.must_equal 2
-      category.products.first.name.must_equal "apple"
-      category.products.last.name.must_equal "banana"
+      category.products.must_include products(:banana)
+      category.products.must_include products(:apple)
+
     end
 
     it "must be empty when a category has no products" do
