@@ -5,16 +5,8 @@ class Product < ApplicationRecord
   validates :quantity, presence: true
   validates_numericality_of :quantity, greater_than: 0
 
-
-<<<<<<< HEAD
   belongs_to :merchant, :foreign_key => 'merchant_id'
 
-=======
-
-  belongs_to :merchant, :foreign_key => 'merchant_id'
-
-
->>>>>>> js/merchant_model
   has_many :reviews
   has_many :orderitems
   has_and_belongs_to_many :categories
