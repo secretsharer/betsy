@@ -2,17 +2,11 @@ class OrdersController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update]
   #before_action :require_login
 
-  def index
-    @orders = Order.all
-  end
+
 
 
     def index
       @orders = Order.all
-    end
-
-    def new
-      @order = Order.new
     end
 
     def show

@@ -1,22 +1,19 @@
 class OrderItemsController < ApplicationController
 
-  def new
-    @orderitem = Orderitem.new
-  end
 
   def create
-    @orderitem = Orderiten.create orderitem_params
-  end
-
-  def show
-    @orderitem = Orderitem.find_by_id (params[:id])
-  end
-
-  def edit
-    @orderitem = Orderitem.find_by_id (params[:id])
-    if @orderitem == nil
-      render_404
+    if Product.is_stock(params[:product_id], params[:quantity])
+      @orderitem = Orderitem.new orderitem_params
+      @orderitem.quantity = 1
+      @orderitem.order_id = current_order.id
+      @orderitem.save
+    else
+      flash[:error] = "Not enough product in stock"
     end
+    redirect_to product_path(params[:product_id])
+  end
+
+  def update
   end
 
   def destroy
@@ -31,7 +28,7 @@ class OrderItemsController < ApplicationController
   private
 
   def orderitem_params
-    params.require(:orderitem).permit(:quantity)
+    params.require(:orderitem).permit(:quantity, :product_id)
 
   end
 
