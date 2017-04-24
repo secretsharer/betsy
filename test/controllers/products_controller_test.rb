@@ -30,7 +30,7 @@ describe ProductsController do
 
   it "should delete a product" do
   proc {
-  delete product_path(products(:banana).id)
+  delete product_path(products(:no_orderitem).id)
   }.must_change 'Product.count', -1
   end
 

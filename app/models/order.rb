@@ -1,6 +1,5 @@
 class Order < ApplicationRecord
   has_many :orderitems, :foreign_key => 'orderitems'
-  belongs_to :merchant, :foreign_key => 'merchant_id'
   belongs_to :order_status
   before_create :set_order_status
   before_save :update_subtotal

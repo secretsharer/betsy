@@ -19,7 +19,12 @@ banana:
   price: 5.00
   quantity: 10
   merchant: dan
-  quantity: 1
+
+no_orderitem:
+  name: "thing"
+  price: 7.50
+  quantity: 2
+  merchant: dan
 
 
 orange:
