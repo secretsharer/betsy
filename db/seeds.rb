@@ -71,3 +71,21 @@ products = [
 products.each do |product|
   Product.create(product)
 end
+
+
+categories = [
+  { name: "haunting"},
+  { name: "anti human"},
+  { name: "slime"},
+  { name: "sound effects"},
+  { name: "relics"},
+  { name: "curses"},
+  { name: "pranks"},
+  { name: "chills"},
+  { name: "anti-ghost detection"},
+
+]
+
+categories.each do |category|
+  Category.create(category)
+end
