@@ -1,1 +1,16 @@
 <h3>Product: <%= @product.name %></h3>
+
+
+  <li><%= link_to @product.name, product_path(@product) %></li>
+  <p>Merchant: <%= link_to @product.merchant.username, merchant_path(@product.merchant) %></p>
+  <p><%= @product.description %></p>
+  <p>Cost: <%= @product.price %></p>
+  <p><%= @product.quantity %> in stock</p>
+  <p>TBD: Add product categories</p>
+
+  <%= form_for :order_items, url: order_items_path, method: :post do |f| %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <%= f.select(:quantity, (1..@product.quantity)) %>
+
+  <%= f.submit "Add to Cart" %> (Currently redirects to product page; should redirect to cart )</p>
+  <% end %>
