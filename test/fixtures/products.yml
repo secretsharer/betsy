@@ -19,6 +19,12 @@ banana:
   quantity: 10
   merchant: dan
 
+orange:
+  name: "orange"
+  price: 1.00
+  quantity: 30
+  merchant: rory
+
 no_price:
   id: 3
   name: "Dragonfruit"
@@ -52,6 +58,10 @@ not_unique_again:
   quantity: 7
   merchant: dan
 
+orange2:
+  name: "orange"
+  price: 1.00
+  quantity: 30
 
 
 # column: value
