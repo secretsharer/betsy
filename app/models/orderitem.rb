@@ -4,6 +4,7 @@ class Orderitem < ApplicationRecord
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0,  }
 
+
   # #WIP not actually good code yet
   # validates :enough_product_in_stock
   #

@@ -4,9 +4,12 @@ Rails.application.routes.draw do
   get 'orderitem/index'
 
   resources :merchants do
-    resources :products, only: [:index]
+    resources :products, only: [:index, :new, :create]
   end
 
+  resources :categories, only: [:index, :new, :create]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :products
+  resource :order, only: [:show]
+
 end

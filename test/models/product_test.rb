@@ -34,4 +34,14 @@ describe Product do
   it "must be able to have a merchant associated with it" do
     products(:banana).merchant.must_equal merchants(:dan)
   end
+
+  it "must have a quantity" do
+    products(:no_quantity).valid?.must_equal false
+    products(:banana).valid?.must_equal true
+  end
+
+  it "quantity must be greater than 0" do
+    products(:zero_quantity).valid?.must_equal false
+    products(:banana).valid?.must_equal true
+  end
 end

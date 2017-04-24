@@ -5,19 +5,22 @@
 # below each fixture, per the syntax in the comments below
 #
 apple:
-  id: 1
+  # id: 1
   name: "apple"
   price: 1.00
   quantity: 5
   merchant: dan
+  quantity: 1
 # column: value
 #
 banana:
-  id: 2
+  # id: 2
   name: "banana"
   price: 5.00
   quantity: 10
   merchant: dan
+  quantity: 1
+
 
 orange:
   name: "orange"
@@ -26,42 +29,71 @@ orange:
   merchant: rory
 
 no_price:
-  id: 3
+  # id: 3
   name: "Dragonfruit"
   quantity: 15
   merchant: dan
+  quantity: 1
+
 
 invalid_price:
-  id: 4
+  # id: 4
   name: "Guava"
   price: 0.00
   quantity: 1
   merchant: dan
+  quantity: 1
+
 
 no_name:
-  id: 5
+  # id: 5
   price: 3.00
   quantity: 5
   merchant: dan
+  quantity: 1
+
 
 not_unique:
-  id: 6
+  # id: 6
   name: "Product"
   price: 5.00
   quantity: 2
   merchant: dan
+  quantity: 1
+
 
 not_unique_again:
-  id: 7
+  # id: 7
+  name: "Product"
+  price: 4.00
+  quantity: 7
+  merchant: dan
+  quantity: 1
+
+no_quantity:
   name: "Product"
   price: 4.00
   quantity: 7
   merchant: dan
 
+<<<<<<< HEAD
 orange2:
   name: "orange"
   price: 1.00
   quantity: 30
+=======
+zero_quantity:
+  name: "Product"
+  price: 4.00
+  quantity: 7
+  merchant: dan
+  quantity: 0
+
+
+
+
+
+>>>>>>> 1f8e3819ad09aabcc045eed6e1092e26a99574e2
 
 
 # column: value

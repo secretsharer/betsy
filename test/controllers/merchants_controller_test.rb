@@ -1,6 +1,7 @@
 require "test_helper"
 
 describe MerchantsController do
+<<<<<<< HEAD
 
   it "should get index" do
     get merchants_path
@@ -67,5 +68,11 @@ describe MerchantsController do
     delete merchant_path(merchants(:dan))
     must_redirect_to merchants_path
   end
+=======
+  # it "should get index" do
+  #   get merchants_path
+  #   value(response).must_be :success?
+  # end
+>>>>>>> 1f8e3819ad09aabcc045eed6e1092e26a99574e2
 
 end
