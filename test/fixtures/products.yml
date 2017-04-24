@@ -9,6 +9,10 @@ apple:
   price: 1.00
   quantity: 5
   merchant: dan
+<<<<<<< HEAD
+=======
+  quantity: 1
+>>>>>>> orderitemsacandsai
 
 banana:
   name: "banana"
@@ -32,6 +36,10 @@ no_price:
   name: "Dragonfruit"
   quantity: 15
   merchant: dan
+<<<<<<< HEAD
+=======
+  quantity: 1
+>>>>>>> orderitemsacandsai
 
 invalid_price:
   name: "Guava"

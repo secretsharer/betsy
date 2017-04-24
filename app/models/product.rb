@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 
   def self.in_stock(id, quantity)
     product = Product.find(id)
-    return (quantity <= product.quantity ? true : false)
+    return (quantity.to_i <= product.quantity ? true : false)
   end
 
 end
