@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'carts/show'
+
   root 'products#index'
 
   get 'order_items/index'
@@ -8,6 +10,8 @@ Rails.application.routes.draw do
   resources :merchants do
     resources :products, only: [:index, :new, :create]
   end
+
+  resources :orders
 
   resources :categories, only: [:index, :new, :create]
 

@@ -35,4 +35,12 @@ class ApplicationController < ActionController::Base
     render file: "#{ Rails.root }/public/404.html", status: 404
   end
 
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+     Order.new
+    end
+  end
+
 end

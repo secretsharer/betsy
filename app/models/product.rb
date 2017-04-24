@@ -8,7 +8,10 @@ class Product < ApplicationRecord
 
 
 
+
   belongs_to :merchant, :foreign_key => 'merchant_id'
+
+
 
 
   has_many :reviews

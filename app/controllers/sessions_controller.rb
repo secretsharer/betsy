@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   # skip_before_action :require_login, only: [:create]
 
-    def create
-      @cart = Order.new
-    end
+  def create
+  end
+
+  
 
     # def login
     #   auth_hash = request.env['omniauth.auth']#our request translated from github and imniauth
