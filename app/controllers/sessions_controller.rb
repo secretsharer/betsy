@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 
   
 
+
     # def login
     #   auth_hash = request.env['omniauth.auth']#our request translated from github and imniauth
     #   #raise
@@ -34,5 +35,8 @@ class SessionsController < ApplicationController
     #
     # def signup
     # end
+
+
+
 
 end

@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    
+    @order = Order.create
   end
 
   def destroy; end
@@ -51,9 +51,6 @@ class OrdersController < ApplicationController
 
   end
 
-  private
 
-  def order_params
-    params.require(:order).permit(:id, :session_id, :quantity, :merchant_id)
-  end
+
 end

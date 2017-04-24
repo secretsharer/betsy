@@ -1,5 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :check_for_session
+
+  def check_for_session
+    if session[:user_id] == nil
+      session[:guest_id] = 1
+    end
+  end
+
   # before_action :require_login
   # helper_method :current_order
   #
@@ -36,10 +44,10 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    if !session[:order_id].nil?
+    if session[:order_id] != nil
       Order.find_by_id(session[:order_id])
     else
-     Order.create
+      Order.create
     end
   end
 
