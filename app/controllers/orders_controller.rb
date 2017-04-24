@@ -21,7 +21,9 @@ class OrdersController < ApplicationController
     session[:cart][orderitem_id] += quantity
   end
 
-  def create; end
+  def create
+    
+  end
 
   def destroy; end
 
