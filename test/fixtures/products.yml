@@ -22,7 +22,6 @@ no_orderitem:
   quantity: 2
   merchant: dan
 
-
 orange:
   name: "orange"
   price: 1.00
@@ -34,26 +33,22 @@ no_price:
   quantity: 15
   merchant: dan
 
-
 invalid_price:
   name: "Guava"
   price: 0.00
   quantity: 1
   merchant: dan
 
-
 no_name:
   price: 3.00
   quantity: 5
   merchant: dan
-
 
 not_unique:
   name: "Product"
   price: 5.00
   quantity: 2
   merchant: dan
-
 
 not_unique_again:
   name: "Product"
@@ -77,11 +72,3 @@ zero_quantity:
   price: 4.00
   merchant: dan
   quantity: 0
-
-
-
-
-
-
-
-# column: value

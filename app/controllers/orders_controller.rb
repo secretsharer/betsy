@@ -4,16 +4,6 @@ class OrdersController < ApplicationController
 
 
 
-
-    def index
-      @orders = Order.all
-    end
-
-    def show
-
-       #@orderitems = current_order.orderitems
-    end
-
   def new
     @order = Order.new
   end
@@ -23,33 +13,42 @@ class OrdersController < ApplicationController
     # @orderitems = current_order.orderitems
   end
 
+  def edit; end
+
   def update
-
+    orderitem_id = params[:id]
+    quantity = params[:quantity]
+    session[:cart][orderitem_id] += quantity
   end
 
-  def create
+  def create; end
 
+  def destroy; end
+
+  def add_orderitem
+    orderitem_id = params[:id]
+    quantity = params[:quantity] || 1
+    session[:cart][orderitem_id] += quantity
   end
 
-  def destroy
+  def remove_items
+    orderitem_id = params[:id]
+    session[:cart].delete orderitem_id
+  end
 
+  def empty
+    session[:cart] = Cart.new
+  end
+
+  def checkout
+    #run through each product, check that quantity of orderitem against stock, reduce quantity of product if okay
+    #redirect to confirmation page
+    #must save information of an order to be accessible by merchant
   end
 
   private
 
   def order_params
     params.require(:order).permit(:id, :session_id, :quantity, :merchant_id)
-  end
-
-  def find_order
-    @order = Order.find(params[:id])
-  end
-
-  # def order_params
-  #   params.require(:order).permit(:id, :session_id)
-  # end
-
-  def find_merchant
-    @merchant = Merchant.find(params[:id])
   end
 end
