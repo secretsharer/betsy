@@ -2,15 +2,16 @@ class OrderItemsController < ApplicationController
 
 
   def create
-    if Product.is_stock(params[:product_id], params[:quantity])
-      @orderitem = Orderitem.new orderitem_params
+    if Product.in_stock(params[:product_id], 1)
+      @orderitem = Orderitem.new
+      @orderitem.product_id = params[:product_id]
       @orderitem.quantity = 1
       @orderitem.order_id = current_order.id
       @orderitem.save
     else
       flash[:error] = "Not enough product in stock"
     end
-    redirect_to product_path(params[:product_id])
+      redirect_to product_path(params[:product_id])
   end
 
   def update
