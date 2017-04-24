@@ -15,37 +15,31 @@ class OrdersController < ApplicationController
     # @orderitems = current_order.orderitems
   end
 
+  def edit; end
+
   def update
-
-  end
-
-  def add_product
-    product_id = params[:id]
-    quantity = params[:quantity] || 1
-    session[:cart][product_id] += quantity
-  end
-
-  def update_quantity
-    product_id = params[:id]
+    orderitem_id = params[:id]
     quantity = params[:quantity]
-    session[:cart][product_id] += quantity
+    session[:cart][orderitem_id] += quantity
+  end
+
+  def create; end
+
+  def destroy; end
+
+  def add_orderitem
+    orderitem_id = params[:id]
+    quantity = params[:quantity] || 1
+    session[:cart][orderitem_id] += quantity
   end
 
   def remove_items
-    product_id = params[:id]
-    session[:cart].delete product_id
+    orderitem_id = params[:id]
+    session[:cart].delete orderitem_id
   end
 
   def empty
     session[:cart] = Cart.new
-  end
-
-  def create
-
-  end
-
-  def destroy
-
   end
 
   def checkout
@@ -58,17 +52,5 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:id, :session_id, :quantity, :merchant_id)
-  end
-
-  def find_order
-    @order = Order.find(params[:id])
-  end
-
-  # def order_params
-  #   params.require(:order).permit(:id, :session_id)
-  # end
-
-  def find_merchant
-    @merchant = Merchant.find(params[:id])
   end
 end
