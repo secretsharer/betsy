@@ -2,14 +2,12 @@ class OrdersController < ApplicationController
   before_action :find_product, only: [:show, :edit, :update]
   #before_action :require_login
 
-
-
   def new
     @order = Order.new
   end
 
   def show
-    @order = Order.find_by_id[params(:id)]
+    @order = Order.find_by_id params[:id]
     # @orderitems = current_order.orderitems
   end
 
@@ -40,10 +38,15 @@ class OrdersController < ApplicationController
     session[:cart] = Cart.new
   end
 
+  def update_quantity(product_id, quantity)
+    oi = orderitems.find_by_product_id(product_id)
+    oi.update_attributes! :quantity => quantity
+  end
+
   def checkout
-    #run through each product, check that quantity of orderitem against stock, reduce quantity of product if okay
-    #redirect to confirmation page
-    #must save information of an order to be accessible by merchant
+  @order = Order.create params[:id]
+  redirect_to payment_path
+
   end
 
   private
