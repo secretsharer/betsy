@@ -5,7 +5,7 @@ class OrderItemsController < ApplicationController
   end
 
   def create
-    @orderitem.create
+    @orderitem = Orderiten.create orderitem_params
   end
 
   def show
