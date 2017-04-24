@@ -67,9 +67,6 @@ describe MerchantsController do
     delete merchant_path(merchants(:dan))
     must_redirect_to merchants_path
   end
-  # it "should get index" do
-  #   get merchants_path
-  #   value(response).must_be :success?
-  # end
+
 
 end

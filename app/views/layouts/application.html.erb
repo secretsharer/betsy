@@ -8,6 +8,12 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <section class="flash">
+      <% flash.each do |name, message| %>
+        <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+
   <body>
     <%= link_to "Cart", carts_show_path %>
     <%= yield %>

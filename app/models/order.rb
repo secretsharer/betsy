@@ -17,10 +17,6 @@ class Order < ApplicationRecord
     Orderitem.update_counters oi.id, :quantity => quantity
   end
 
-  def update_quantity(product_id, quantity)
-    oi = orderitems.find_by_product_id(product_id)
-    oi.update_attributes! :quantity => quantity
-  end
 private
 
   def set_order_status

@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :orderitems, only: [:create, :update, :destroy]
-
   resources :merchants do
     resources :products, only: [:index, :new, :create]
   end
@@ -16,4 +14,8 @@ Rails.application.routes.draw do
   resources :products
 
   resources :order_items, only: [:create, :update, :destroy]
+
+  get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
+  patch "/:session_id/payments/", to: "payments#update", as: "update_payment"
+
 end

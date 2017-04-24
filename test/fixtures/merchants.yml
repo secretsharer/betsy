@@ -8,13 +8,10 @@ dan:
   username: dan
   email: dan@ada.org
 
-# column: value
-#
 duplicateusername:
   username: danny
   email: imposter@ada.org
 
-# column: value
 
 duplicateusername2:
   username: danny
@@ -30,13 +27,10 @@ duplicateemail2:
   username: kary
   email: kari@ada.org
 
-#has no products
 sam:
   username: sam
   email: sam@sam.org
 
-
-#has one product
 rory:
   username: rory
   email: rory@rory.org
