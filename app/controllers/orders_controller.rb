@@ -6,14 +6,16 @@ class OrdersController < ApplicationController
 
 
     def index
+      @orders = Order.all
     end
 
     def new
-      @product = Product.new
+      @order = Order.new
     end
 
     def show
-      @orderitems = current_order.orderitems
+      
+       #@orderitems = current_order.orderitems
     end
 
     def edit; end
