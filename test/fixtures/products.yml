@@ -27,6 +27,12 @@ no_orderitem:
   merchant: dan
 
 
+orange:
+  name: "orange"
+  price: 1.00
+  quantity: 30
+  merchant: rory
+
 no_price:
   # id: 3
   name: "Dragonfruit"
@@ -75,6 +81,12 @@ no_quantity:
   quantity: 7
   merchant: dan
 
+<<<<<<< HEAD
+orange2:
+  name: "orange"
+  price: 1.00
+  quantity: 30
+=======
 zero_quantity:
   name: "Product"
   price: 4.00
@@ -86,6 +98,7 @@ zero_quantity:
 
 
 
+>>>>>>> 1f8e3819ad09aabcc045eed6e1092e26a99574e2
 
 
 # column: value
