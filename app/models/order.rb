@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  has_many :orderitems, :foreign_key => 'orderitems'
+  has_many :orderitems, :foreign_key => 'orderitems'#,:dependent => :destroy
   belongs_to :order_status
   before_create :set_order_status
   before_save :update_subtotal
@@ -11,6 +11,16 @@ class Order < ApplicationRecord
     orderitems.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
   end
 
+  def add_product(product_id, quantity)
+    quantity ||= 1
+    oi = orderitems.find_or_create_by_product_id(product_id)
+    Orderitem.update_counters oi.id, :quantity => quantity
+  end
+
+  def update_quantity(product_id, quantity)
+    oi = orderitems.find_by_product_id(product_id)
+    oi.update_attributes! :quantity => quantity
+  end
 private
 
   def set_order_status

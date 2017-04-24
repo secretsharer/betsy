@@ -26,7 +26,6 @@ no_orderitem:
   quantity: 2
   merchant: dan
 
-
 orange:
   name: "orange"
   price: 1.00
@@ -40,7 +39,6 @@ no_price:
   merchant: dan
   quantity: 1
 
-
 invalid_price:
   # id: 4
   name: "Guava"
@@ -49,14 +47,12 @@ invalid_price:
   merchant: dan
   quantity: 1
 
-
 no_name:
   # id: 5
   price: 3.00
   quantity: 5
   merchant: dan
   quantity: 1
-
 
 not_unique:
   # id: 6
@@ -65,7 +61,6 @@ not_unique:
   quantity: 2
   merchant: dan
   quantity: 1
-
 
 not_unique_again:
   # id: 7
@@ -81,12 +76,11 @@ no_quantity:
   quantity: 7
   merchant: dan
 
-<<<<<<< HEAD
 orange2:
   name: "orange"
   price: 1.00
   quantity: 30
-=======
+
 zero_quantity:
   name: "Product"
   price: 4.00
@@ -94,11 +88,6 @@ zero_quantity:
   merchant: dan
   quantity: 0
 
-
-
-
-
->>>>>>> 1f8e3819ad09aabcc045eed6e1092e26a99574e2
 
 
 # column: value

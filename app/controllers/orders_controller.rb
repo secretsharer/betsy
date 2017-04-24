@@ -6,20 +6,6 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-
-    def index
-      @orders = Order.all
-    end
-
-    def new
-      @order = Order.new
-    end
-
-    def show
-
-       #@orderitems = current_order.orderitems
-    end
-
   def new
     @order = Order.new
   end
@@ -33,12 +19,39 @@ class OrdersController < ApplicationController
 
   end
 
+  def add_product
+    product_id = params[:id]
+    quantity = params[:quantity] || 1
+    session[:cart][product_id] += quantity
+  end
+
+  def update_quantity
+    product_id = params[:id]
+    quantity = params[:quantity]
+    session[:cart][product_id] += quantity
+  end
+
+  def remove_items
+    product_id = params[:id]
+    session[:cart].delete product_id
+  end
+
+  def empty
+    session[:cart] = Cart.new
+  end
+
   def create
 
   end
 
   def destroy
 
+  end
+
+  def checkout
+    #run through each product, check that quantity of orderitem against stock, reduce quantity of product if okay
+    #redirect to confirmation page
+    #must save information of an order to be accessible by merchant
   end
 
   private
