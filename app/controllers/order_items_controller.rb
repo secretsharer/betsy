@@ -3,17 +3,20 @@ class OrderItemsController < ApplicationController
 
   def create
 
-    if Product.in_stock(params[:order_items][:product_id], params[:order_items][:quantity])
+    if Orderitem.find_by_product_id(params[:order_items][:product_id]) != nil
+      flash[:error] = "This item is already in your cart"
+
+    elsif Product.in_stock(params[:order_items][:product_id], params[:order_items][:quantity])
       @orderitem = Orderitem.new
       @orderitem.product_id = params[:order_items][:product_id]
       @orderitem.quantity = params[:order_items][:quantity]
       @orderitem.order_id = current_order.id
       @orderitem.save
+      flash[:success] = "Item added to cart"
     else
       flash[:error] = "Not enough product in stock"
     end
-      flash[:success] = "Item added to cart"
-      redirect_to product_path(@orderitem.product.id)
+      redirect_to product_path(params[:order_items][:product_id])
   end
 
   def update
