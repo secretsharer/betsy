@@ -18,6 +18,13 @@ class OrderItemsController < ApplicationController
 
   def update
     #change qty of item
+    @orderitem = Orderitem.find_by_id(params[:id])
+
+    if @orderitem.update orderitem_params
+      redirect_to carts_show_path
+    else
+      flash[:error] = "Could not update cart"
+    end
   end
 
   def destroy
