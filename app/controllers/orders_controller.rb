@@ -4,6 +4,8 @@ class OrdersController < ApplicationController
     @order_items = @order.orderitems
   end
 
+  def edit; end
+
   def create
     @order = Order.create
   end

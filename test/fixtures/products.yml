@@ -9,8 +9,6 @@ apple:
   price: 1.00
   quantity: 5
   merchant: dan
-  quantity: 1
-
 
 banana:
   name: "banana"
@@ -34,8 +32,6 @@ no_price:
   name: "Dragonfruit"
   quantity: 15
   merchant: dan
-  quantity: 1
-
 
 invalid_price:
   name: "Guava"

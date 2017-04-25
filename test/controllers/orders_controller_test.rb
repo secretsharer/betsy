@@ -2,19 +2,6 @@ require "test_helper"
 
 describe OrdersController do
 
-  it "should get cart 'index'" do
-    skip
-    #empty cart page presumably showing one empty cart
-    get orders_path
-    must_respond_with :success
-  end
-
-  it "should show orderitems if merchant (session?) has orderitems" do
-    skip
-    #how should this path look? products per merchant, per session?
-    get order_path(merchants(:dan).id(orderitems))
-    must_respond_with :success
-  end
 
   it "adding items should update the order orderitem count" do
     skip
@@ -27,13 +14,12 @@ describe OrdersController do
   must_redirect_to order_path
   end
 
-
-  it "should delete an orderitem" do
-    skip
-  proc {
-  delete orderitem_path(products(:banana).id)
-}.must_change 'Orderitem.count', -1
+  it "should have order items associate with it" do
   end
+
+  it "should let you checkout an order" do
+  end
+
 
 
   it "should show an individual product" do
@@ -42,10 +28,5 @@ describe OrdersController do
     must_respond_with :success
   end
 
-  it "should get an edit page" do
-    skip
-    get edit_orders_path(orderitems(:apple).id)
-    must_respond_with :success
-  end
 
 end
