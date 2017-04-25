@@ -9,12 +9,11 @@ class OrderItemsController < ApplicationController
       @orderitem.quantity = params[:order_items][:quantity]
       @orderitem.order_id = current_order.id
       @orderitem.save
-      raise
     else
       flash[:error] = "Not enough product in stock"
     end
       flash[:success] = "Item added to cart"
-      redirect_to product_path(params[:order_items][:product_id])
+      redirect_to product_path(@orderitem.product.id)
   end
 
   def update
