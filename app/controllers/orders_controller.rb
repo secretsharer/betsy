@@ -6,11 +6,6 @@ class OrdersController < ApplicationController
 
   def edit; end
 
-  def update
-    orderitem_id = params[:id]
-    quantity = params[:quantity]
-    session[:cart][orderitem_id] += quantity
-  end
 
   def create
     @order = Order.create

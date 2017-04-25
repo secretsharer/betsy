@@ -57,7 +57,7 @@ describe Merchant do
     it "can have more than 1 product" do
       dan = merchants(:dan)
       dan.valid?.must_equal true
-      dan.products.length.must_equal 7
+      dan.products.length.must_equal 10
     end
 
     it "products can't belong to more than one merchant" do
