@@ -20,6 +20,10 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def show
+
+  end
+
   private
 
   def category_params
