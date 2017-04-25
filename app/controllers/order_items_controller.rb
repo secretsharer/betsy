@@ -2,10 +2,8 @@ class OrderItemsController < ApplicationController
 
 
   def create
-
-    if Orderitem.find_by_product_id(params[:order_items][:product_id]) != nil
+    if Orderitem.where(:order_id => current_order.id).length != 0 && Orderitem.where(:product_id => params[:order_items][:product_id]).length != 0
       flash[:error] = "This item is already in your cart"
-
     elsif Product.in_stock(params[:order_items][:product_id], params[:order_items][:quantity])
       @orderitem = Orderitem.new
       @orderitem.product_id = params[:order_items][:product_id]
