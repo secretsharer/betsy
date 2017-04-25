@@ -34,6 +34,11 @@ it "should update the quantity in the cart" do
 end
 
 it "should delete an orderitem" do
+  proc {
+# run the delete verb on the post_path with a param equal to 1
+  delete destroy_item_path(:id => orderitems(:one).id)
+}.must_change 'Orderitem.count', -1
+
 end
 
 end
