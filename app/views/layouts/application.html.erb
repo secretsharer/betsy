@@ -15,7 +15,8 @@
     </section>
 
   <body>
-    <%= link_to "Cart", carts_show_path %>
+    <%= link_to "Ghosty", root_path %>
+    <%= link_to "Cart", order_path(@order.id) %>
     <%= yield %>
   </body>
 </html>
