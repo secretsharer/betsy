@@ -64,6 +64,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 gem 'awesome_print'
@@ -73,3 +74,6 @@ group :test do
   gem 'simplecov'
 
 end
+
+gem 'omniauth'
+gem 'omniauth-github'
