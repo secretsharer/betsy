@@ -17,7 +17,7 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-
+    #change qty of item
   end
 
   def destroy

@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :check_for_session
+  before_action :setup_session_and_cart
 
-  def check_for_session
-    if session[:user_id] == nil
-      session[:guest_id] = 1
+  #trying to setup a guest session and cart at the start of running the website but the values in the session hash don't persist (so a new cart is created every time you do anything)
+  def setup_session_and_cart
+    if !session[:user_id]
+      if session[:guest_id] == nil
+        session[:guest_id] = 1
+        @order = Order.create
+      end
     end
   end
 
