@@ -23,6 +23,4 @@ class OrdersController < ApplicationController
   redirect_to payment_path
   end
 
-
-
 end
