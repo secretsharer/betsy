@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
       @orderitem = Orderitem.new
       @orderitem.product_id = params[:order_items][:product_id]
       @orderitem.quantity = params[:order_items][:quantity]
-      @orderitem.order_id = current_order
+      @orderitem.order_id = current_order.id
       @orderitem.save
     else
       flash[:error] = "Not enough product in stock"
