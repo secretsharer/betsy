@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :products
 
+  resources :carts, only: [:show]
+
   resources :order_items, only: [:create, :update, :destroy]
 
   get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"

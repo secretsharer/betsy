@@ -51,7 +51,8 @@ class ApplicationController < ActionController::Base
     if session[:order_id] != nil
       Order.find_by_id(session[:order_id])
     else
-      Order.create
+      order = Order.create
+      session[:order_id] = order.id
     end
   end
 

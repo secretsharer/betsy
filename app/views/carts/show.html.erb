@@ -1,0 +1,10 @@
+<% @order_items.each do |item| %>
+<ul>
+  <li>
+    <%= item.product.name %>
+  </li>
+  <li>
+    <%= item.quantity %>
+  </li>
+</ul>
+<% end %>
