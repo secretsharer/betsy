@@ -6,35 +6,49 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 merchants = [
   {
-    username: "Dan",
-    email: "dan@betsy.com"
+    name: "Dan",
+    username: "dan",
+    email: "dan@betsy.com",
+    uid: 12,
+    provider: 'github'
   },
 
   {
-    username: "Jamie",
+    name: "Jamie",
+    username: "jamie",
     email: "jamie@betsy.com",
-    description: "I make haunting materials that are fun for all ghosts"
+    description: "I make haunting materials that are fun for all ghosts",
+    uid: 11,
+    provider: 'github'
   },
 
   {
-    username: "Kari",
+    name: "Kari",
+    username: "kari",
     email: "kari@betsy.com",
-    description: "I specialize in scary hats for ghosts"
+    description: "I specialize in scary hats for ghosts",
+    uid: 10,
+    provider: 'github'
   },
 
   {
-  username: "Chris",
-  email: "chris@betsy.com",
-  description: "I've perfected invisible cheez-its for snacking on the job."
+    name: "Chris",
+    username: "chris",
+    email: "chris@betsy.com",
+    description: "I've perfected invisible cheez-its for snacking on the job.",
+    uid: 14,
+    provider: 'github'
   },
 
   {
-    username: "Casper",
+    name: "Casper",
+    username: "casper",
     email: "casper@betsy.com",
-    description: "Who says haunting has to be mean? I take a friendly approach to being a ghost."
+    description: "Who says haunting has to be mean? I take a friendly approach to being a ghost.",
+    uid: 16,
+    provider: 'github'
   }
 
 ]
@@ -67,6 +81,8 @@ products = [
 
   },
 ]
+
+
 
 products.each do |product|
   Product.create(product)
