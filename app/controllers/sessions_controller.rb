@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
+  
   def logout
     #session[:merchant_id] = nil
     session.delete(:merchant_id)
@@ -26,7 +27,5 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def signup
-  end
 
-  end
+end
