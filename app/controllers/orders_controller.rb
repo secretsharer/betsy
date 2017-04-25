@@ -6,10 +6,11 @@ class OrdersController < ApplicationController
 
   def edit; end
 
-
   def create
     @order = Order.create
   end
+
+  def edit; end
 
   def destroy; end
 
@@ -17,11 +18,9 @@ class OrdersController < ApplicationController
     session[:cart] = Order.new
   end
 
-
   def checkout
   @order = Order.create params[:id]
   redirect_to payment_path
-
   end
 
 
