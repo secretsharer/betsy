@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
 
   def destroy
     Orderitem.destroy(params[:id])
-    redirect_to #order path?
+    redirect_to carts_show_path
   end
 
   #we will need a method to get order items by order

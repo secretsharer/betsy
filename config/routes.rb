@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'carts/show'
+  delete 'carts/show', to: 'order_items#destroy', as: :destroy_item
 
   root 'products#index'
 
@@ -13,7 +14,9 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :carts, only: [:show]
+  # resources :carts, only: [:show] do
+  #   resources :order_items, only: [:destroy]
+  # end
 
   resources :order_items, only: [:create, :update, :destroy]
 
