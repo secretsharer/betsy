@@ -5,7 +5,7 @@ class Order < ApplicationRecord
   before_save :update_subtotal
 
   validates :id, presence: true, uniqueness: true
-  validates :session, presence: true
+  # validates :session, presence: true
 
   def subtotal
     orderitems.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
