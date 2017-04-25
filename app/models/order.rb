@@ -8,7 +8,7 @@ class Order < ApplicationRecord
   # validates :session, presence: true
 
   def subtotal
-    orderitems.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+    orderitems.collect { |oi| oi.valid? ? (oi.product.quantity * oi.product.price) : 0 }.sum
   end
 
   def add_product(product_id, quantity)
