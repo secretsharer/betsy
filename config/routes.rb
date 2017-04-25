@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "/auth/:provider/callback", to: "sessions#create"
+  
   get 'carts/show'
   delete 'carts/show', to: 'order_items#destroy', as: :destroy_item
 
@@ -23,5 +25,4 @@ Rails.application.routes.draw do
 
   get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
   patch "/:session_id/payments/", to: "payments#update", as: "update_payment"
-
 end
