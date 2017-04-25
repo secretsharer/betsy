@@ -16,4 +16,13 @@ class Product < ApplicationRecord
     return (quantity.to_i <= product.quantity ? true : false)
   end
 
+  def rating
+    ratings = []
+    self.reviews.each do |r|
+      ratings << r.rating
+    end
+    return 0 if ratings.length == 0
+    return (ratings.reduce(:+) / ratings.length)
+  end
+
 end

@@ -1,3 +1,5 @@
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
 <h3>Product: <%= @product.name %></h3>
 
 
@@ -16,6 +18,7 @@
   <% end %>
 
   <%= form_for :reviews, url: reviews_path, method: :post do |f| %>
+  <%= f.label "How spoopy was this product" %><i class="em em-scream"></i>
   <%= f.select(:rating, (1..5)) %>
   <%= f.label :description %>
   <%= f.text_area :description, size: "40x10" %>
@@ -23,9 +26,12 @@
   <%= f.submit "Tell someone who cares" %>
   <% end %>
 
+  <p>
+    Average spookiness: <% @product.rating.times do %><i class="em em-scream"></i><% end %>
+  </p>
   <% @product.reviews.each do |r| %>
   <p>
-    <%= r.rating %>
+    <% r.rating.times do %><i class="em em-ghost"></i><% end %>
     <%= r.description %>
   </p>
   <% end %>
