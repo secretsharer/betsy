@@ -18,5 +18,7 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+
 #ignore authentication credentials info
+
 .env
