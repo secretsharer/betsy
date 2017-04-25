@@ -1,4 +1,4 @@
-<h4>Total Items in Cart: <%= @order_items.length %></h4>
+<h4>Total Items in Cart: <%= @order_items != nil ? @order_items.length : 0 %></h4>
 <% @order_items.each do |item| %>
 <ul>
   <li>

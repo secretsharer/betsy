@@ -4,10 +4,11 @@ class ApplicationController < ActionController::Base
 
   #trying to setup a guest session and cart at the start of running the website but the values in the session hash don't persist (so a new cart is created every time you do anything)
   def setup_session_and_cart
-    if !session[:user_id]
+    if !session[:merchant_id]
       if session[:guest_id] == nil
-        session[:guest_id] = 1
-        @order = Order.create
+        session[:guest_id] = "guest"
+        order = Order.create
+        session[:order_id] = order.id
       end
     end
   end

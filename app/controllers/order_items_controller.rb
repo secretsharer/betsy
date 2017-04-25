@@ -2,7 +2,6 @@ class OrderItemsController < ApplicationController
 
 
   def create
-
     if Orderitem.find_by_product_id(params[:order_items][:product_id]) != nil
       flash[:error] = "This item is already in your cart"
 
