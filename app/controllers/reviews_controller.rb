@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
 def create
-  @review = Review.create review_params
+  review = Review.create review_params
   redirect_back(fallback_location: root_path)
 end
 
@@ -11,7 +11,7 @@ end
 private
 
 def review_params
-  params.require(:reviews).permit(:rating, :description)
+  params.require(:reviews).permit(:rating, :description, :product_id)
 end
 
 end

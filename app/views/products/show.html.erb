@@ -19,11 +19,13 @@
   <%= f.select(:rating, (1..5)) %>
   <%= f.label :description %>
   <%= f.text_area :description, size: "40x10" %>
+  <%= f.hidden_field :product_id, value: @product.id %>
   <%= f.submit "Tell someone who cares" %>
   <% end %>
 
   <% @product.reviews.each do |r| %>
   <p>
+    <%= r.rating %>
     <%= r.description %>
-  </p> 
+  </p>
   <% end %>
