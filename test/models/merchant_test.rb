@@ -6,7 +6,7 @@ describe Merchant do
   describe 'validations on merchant' do
     it 'requires a username to be valid' do
       #merchant with no username is bad
-      merchant = Merchant.new(email: 'hey@ada.org')
+      merchant = Merchant.new(email: 'hey@ada.org', uid: 19, provider: "hi")
       merchant.valid?.must_equal false
       merchant.errors.messages.must_include :username
       #merchant with username is good
@@ -16,14 +16,14 @@ describe Merchant do
 
     it 'requires a unique username to be valid' do
       dan = merchants(:dan)
-      user = Merchant.new(username: 'dan', email: 'ho@ada.org')
+      user = Merchant.new(username: 'dan', email: 'ho@ada.org', uid: 23, provider: "gg")
       result = user.save
       result.must_equal false
       user.errors.messages.must_include :username
     end
 
     it 'requires an email address to be valid' do
-      merchant = Merchant.new(username: 'sai')
+      merchant = Merchant.new(username: 'sai', uid: 87, provider: "peeves")
       merchant.valid?.must_equal false
       merchant.errors.messages.must_include :email
 
@@ -34,7 +34,7 @@ describe Merchant do
     it 'requires a unique email address to be valid' do
       dan = merchants(:dan)
 
-      user = Merchant.new(username: 'sai', email: 'dan@ada.org')
+      user = Merchant.new(username: 'sai', email: 'dan@ada.org', uid: 17, provider: "lal")
       result = user.save
       result.must_equal false
       user.errors.messages.must_include :email
