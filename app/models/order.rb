@@ -1,10 +1,10 @@
 class Order < ApplicationRecord
   has_many :orderitems, :foreign_key => 'orderitems'#,:dependent => :destroy
-  belongs_to :order_status
-  before_create :set_order_status
-  before_save :update_subtotal
-
-  validates :id, presence: true, uniqueness: true
+  # belongs_to :order_status
+  # before_create :set_order_status
+  # before_save :update_subtotal
+  #
+  # validates :id, presence: true, uniqueness: true
   # validates :session, presence: true
 
   def subtotal
