@@ -25,6 +25,10 @@ Rails.application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
+  get 'merchants/:id/products', to: "merchants#products", as: "account_products"
+  get 'merchants/:id/orders', to: "merchants#orders", as: "account_orders"
+
+
   get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
   patch "/:session_id/payments/", to: "payments#update", as: "update_payment"
 end
