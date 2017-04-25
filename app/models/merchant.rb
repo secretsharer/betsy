@@ -8,7 +8,7 @@ class Merchant < ApplicationRecord
     merchant = Merchant.new
     merchant.uid = auth_hash['uid']
     merchant.provider = auth_hash['provider']
-    merchant.username = auth_hash['info']['name']
+    merchant.username = auth_hash['info']['nickname']
     merchant.email = auth_hash['info']['email']
 
     merchant.save ? merchant : nil # if it's saved, it will return the user. Otherwise, it returns nil. w/o this, it will return true or false

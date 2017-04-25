@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "sessions#create"
-  
+
   get 'carts/show'
   delete 'carts/show', to: 'order_items#destroy', as: :destroy_item
 
   root 'products#index'
+  post '/logout', to: 'sessions#logout', as: 'logout'
 
   resources :merchants do
     resources :products, only: [:index, :new, :create]

@@ -8,11 +8,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <section class="login">
+    <% if current_merchant %>
+        <p>Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %></p>
+        <%= link_to "Log Out", logout_path, method: :post %>
+      <% else %>
+        <p >Not logged in</p>
+        <%= link_to "Log In Using GitHub", "/auth/github" %>
+      <% end %>
+
+  </section>
+
   <section class="flash">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>
       <% end %>
     </section>
+
 
   <body>
     <%= link_to "Ghosty", root_path %>
