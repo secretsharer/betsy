@@ -11,22 +11,30 @@
     <%= csrf_meta_tags %>
   </head>
   <header class="header row">
-    <h2 class="columns large-9 small-12"><%= link_to "Ghosty", root_path %></h2>
-    <small class="columns large-9 small-12">So good it's scary</small>
+    <section class= "columns large-9 small-12 head">
+    <h2><%= link_to "Ghosty", root_path %></h2>
+    <small>So good it's scary</small>
+    </section>
     <nav class="columns large-3 small-12 nav-bar">
-    <section class="top columns large-4 small-12" ><%= link_to "Cart", carts_show_path, class: "button nav-button" %></section>
-    <section class="top columns large-4 small-12" ><%= link_to "Categories", categories_path, class: "button nav-button"  %></section>
-    <% if current_merchant %>
-      <section class="top columns large-4 small-12" >
-        Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %>
-        <%= link_to "Log Out", logout_path, method: :post, class: "button nav-button"  %>
-      </section>
-      <% else %>
-      <section class="top columns large-4 small-12" >
-        Not logged in
-        <%= link_to "Log In Using GitHub", "/auth/github", class: "button nav-button"  %>
-        </section
-      <% end %>
+      <ul class = "top row">
+        <li><%= link_to "Cart", carts_show_path, class: "button nav-button" %></li>
+        <li><%= link_to "Categories", categories_path, class: "button nav-button"  %></li>
+        <% if current_merchant %>
+          <li>
+            Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %>
+          </li>
+          <li>
+            <%= link_to "Log Out", logout_path, method: :post, class: "button nav-button"  %>
+          </li>
+          <% else %>
+          <li>
+            Not logged in
+          </li>
+          <li>
+            <%= link_to "Log In Using GitHub", "/auth/github", class: "button nav-button"  %>
+          </li>
+          <% end %>
+        </ul>
     </nav>
   </header>
   <section class="login">
