@@ -31,6 +31,14 @@ it "should not create an orderitem is there is not enough quantity of product" d
 end
 
 it "should update the quantity in the cart" do
+    patch order_item_path(orderitems(:one)), params: { orderitem:
+      {
+        quantity: 3
+   }  }
+
+   orderitems(:one).quantity.must_equal 3
+
+
 end
 
 it "should delete an orderitem" do

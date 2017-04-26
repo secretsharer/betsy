@@ -31,7 +31,10 @@ describe MerchantsController do
   it "should redirect to merchant index after adding a valid merchant" do
     post merchants_path params: {merchant:
       { username: "peeves",
-        email: "peeves@hogwarts.com"
+        email: "peeves@hogwarts.com",
+        uid: 49,
+        provider: "cool"
+
       }
     }
     must_redirect_to merchants_path
@@ -46,7 +49,9 @@ describe MerchantsController do
       post merchants_path params: {merchant:
         { username: "peeves",
           email: "peeves@hogwarts.com",
-          description: "Products for obnoxious yet discerning ghosts"
+          description: "Products for obnoxious yet discerning ghosts",
+          uid: 12,
+          provider: "lala"
         }
       }
     }.must_change 'Merchant.count', 1

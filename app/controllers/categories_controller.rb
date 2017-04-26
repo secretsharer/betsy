@@ -4,7 +4,6 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
-
   def new
     @category = Category.new
   end
@@ -19,6 +18,10 @@ class CategoriesController < ApplicationController
       flash.now[:error] = "Category not created; see below for specifics"
       render "new"
     end
+  end
+
+  def show
+
   end
 
   private
