@@ -36,9 +36,10 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new product_params
-    product.merchant_id = params[:merchant_id]
-    product.save
+    product.merchant_id = current_merchant.id
 
+    product.save
+  
     if product.save
       redirect_to merchant_products_path(params[:merchant_id])
     end

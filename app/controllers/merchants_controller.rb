@@ -66,7 +66,7 @@ class MerchantsController < ApplicationController
   end
 
   def user_matches_merchant
-    if session[:merchant_id] != params[:id]
+    if current_merchant.id != params[:id]
       flash[:error] = "**You do not have permission to view that page**"
       redirect_to :back
     end
