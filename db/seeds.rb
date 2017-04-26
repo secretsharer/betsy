@@ -80,6 +80,71 @@ products = [
     description: "made from high quality wax"
 
   },
+  { name: "Levitator",
+    price: 11.50,
+    quantity: 23,
+    merchant_id: 2,
+    description: "move objects with ease"
+
+  },
+  { name: "pumpkin helmet",
+    price: 9.75,
+    quantity: 15,
+    merchant_id: 2,
+    description: "perfect for headless ghosts"
+
+  },
+  { name: "can of spirits",
+    price: 4.15,
+    quantity: 15,
+    merchant_id: 3,
+    description: "prank your friends at your next ghostly party. Spirits comein assorted shapes and sizes. Ten per can."
+
+  },
+  { name: "Sugar Bats",
+    price: 0.75,
+    quantity: 90,
+    merchant_id: 4,
+    description: "Delicious snack while waiting for your next spooking session"
+
+  },
+  { name: "Secret passageway",
+    price: 63.45,
+    quantity: 7,
+    merchant_id: 5,
+    description: "Create a portal from the basement to the bathroom with ease. (you don't need this product; you are a ghost who can travel through solid objects)."
+
+  },
+
+  { name: "Animated Skeleton",
+    price: 40.00,
+    quantity: 37,
+    merchant_id: 1,
+    description: "Perfect for popping out of backyard pet graves."
+  },
+  { name: "Army of Ghosts",
+    price: 1500.00,
+    quantity: 2,
+    merchant_id: 3,
+    description: "How else can we defeat Sauron?"
+  },
+  { name: "Frog",
+    price: 2.00,
+    quantity: 72,
+    merchant_id: 1,
+    description: "Perfect as a gift for the witches and wizards in your life."
+  },
+  { name: "Balloon Ghost",
+    price: 3.50,
+    quantity: 73,
+    merchant_id: 1,
+  },
+  { name: "Potting Wheel",
+    price: 400.00,
+    quantity: 11,
+    merchant_id: 5,
+    description: "Use it to woo your love from beyond"
+  },
 ]
 
 
