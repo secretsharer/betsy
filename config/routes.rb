@@ -25,6 +25,6 @@ Rails.application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
-  get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
-  patch "/:session_id/payments/", to: "payments#update", as: "update_payment"
+  get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
+  patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
 end
