@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
    before_action :find_product, only: [:show, :edit, :update]
+   before_action :user_matches_merchant, only: [:new, :create]
    skip_before_action :require_login, only: [:index, :show]
 
 
