@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   def destroy; end
 
   def empty
-    session[:cart] = Order.new
+    #session[:cart] = Order.new
   end
 
 
