@@ -39,9 +39,9 @@ class ProductsController < ApplicationController
     product.merchant_id = current_merchant.id
 
     product.save
-  
+
     if product.save
-      redirect_to merchant_products_path(params[:merchant_id])
+      redirect_to merchant_products_path(current_merchant.id)
     end
   end
 
