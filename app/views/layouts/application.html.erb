@@ -3,21 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
 
     <%= stylesheet_link_tag "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <section class="login">
+  <header class="header row">
+    <h2 class="columns large-9 small-12"><%= link_to "Ghosty", root_path %></h2>
+    <small class="columns large-9 small-12">So good it's scary</small>
+    <nav class="columns large-3 small-12 nav-bar">
+    <section class="top columns large-4 small-12" ><%= link_to "Cart", carts_show_path, class: "button nav-button" %></section>
+    <section class="top columns large-4 small-12" ><%= link_to "Categories", categories_path, class: "button nav-button"  %></section>
     <% if current_merchant %>
-        <p>Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %></p>
-        <%= link_to "Log Out", logout_path, method: :post %>
+      <section class="top columns large-4 small-12" >
+        Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %>
+        <%= link_to "Log Out", logout_path, method: :post, class: "button nav-button"  %>
+      </section>
       <% else %>
-        <p >Not logged in</p>
-        <%= link_to "Log In Using GitHub", "/auth/github" %>
+      <section class="top columns large-4 small-12" >
+        Not logged in
+        <%= link_to "Log In Using GitHub", "/auth/github", class: "button nav-button"  %>
+        </section
       <% end %>
+    </nav>
+  </header>
+  <section class="login">
+
 
   </section>
 
@@ -29,9 +42,7 @@
 
 
   <body>
-    <%= link_to "Ghosty", root_path %>
-    <%= link_to "Cart", carts_show_path %>
-    <%= link_to "Categories", categories_path %>
+
 
     <%= yield %>
 

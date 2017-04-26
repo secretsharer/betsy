@@ -1,0 +1,26 @@
+$light-gray: #e6e6e6;
+
+header {
+  h2 {
+    font-family: 'Creepster', cursive;
+    font-size: 10.0em;
+    text-align:center;
+    a {
+      color:$light-gray;
+      &:hover {
+        color:lighten($light-gray, 10%);
+      }
+    }
+  }
+  small {
+    text-align: center;
+    text-size: 5.0em;
+  }
+  .nav-bar {
+    border-style:solid;
+    display:block;
+    .nav-button {
+      border-style:solid;
+    }
+  }
+}
