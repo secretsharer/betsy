@@ -38,6 +38,11 @@ class ProductsController < ApplicationController
   def create
     product = Product.new product_params
     product.merchant_id = current_merchant.id
+    params[:product][:categories].each do |category|
+      if category != ""
+        product.categories << Category.find_by_id(category)
+      end
+    end
 
     product.save
 
