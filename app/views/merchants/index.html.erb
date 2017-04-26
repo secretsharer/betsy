@@ -6,7 +6,7 @@
     <% if merchant.description != nil %>
       <li>Description: <%=merchant.description %></li>
       <%end %>
-    <li>(this link is broken)<%= link_to "Products", merchant_products_path(merchant) %></li>
+    <li><%= link_to "Products", merchant_products_path(merchant) %></li>
   </ul>
 <% end %>
 </ul>

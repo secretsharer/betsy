@@ -1,5 +1,7 @@
 class MerchantsController < ApplicationController
   before_action :find_merchant, only: [:show, :edit, :update]
+  before_action :user_matches_merchant, except: [:index, :show, :new, :create]
+  skip_before_action :require_login, only: [:index, :create, :show]
 
   def index
     @merchants = Merchant.all
@@ -42,6 +44,10 @@ class MerchantsController < ApplicationController
 
   end
 
+  def products
+    @products = Merchant.find_by_id(params[:id]).products
+  end
+
   def destroy
     Merchant.destroy(params[:id])
 
@@ -52,10 +58,17 @@ class MerchantsController < ApplicationController
   private
 
   def merchant_params
-    params.require(:merchant).permit(:username, :email, :description)
+    params.require(:merchant).permit(:username, :email, :description, :uid, :provider)
   end
 
   def find_merchant
     @merchant = Merchant.find_by_id params[:id]
+  end
+
+  def user_matches_merchant
+    if current_merchant.id != params[:id].to_i
+      flash[:error] = "**You do not have permission to view that page**"
+      redirect_to :back
+    end
   end
 end

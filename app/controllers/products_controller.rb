@@ -1,11 +1,15 @@
 class ProductsController < ApplicationController
    before_action :find_product, only: [:show, :edit, :update]
-   #before_action :require_login
+   skip_before_action :require_login, only: [:index, :show]
+
 
   def index
     if params[:merchant_id]
       merchant = Merchant.find_by(id: params[:merchant_id])
       @products = merchant.products
+    elsif params[:category_id]
+      category = Category.find_by(id: params[:category_id])
+      @products = category.products
     else
     @products = Product.all
     end
@@ -35,13 +39,16 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new product_params
-    product.merchant_id = params[:merchant_id]
+    product.merchant_id = current_merchant.id
+
     product.save
 
     if product.save
-      redirect_to merchant_products_path(params[:merchant_id])
+      redirect_to merchant_products_path(current_merchant.id)
     end
   end
+
+
 
   private
 

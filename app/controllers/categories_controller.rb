@@ -1,8 +1,8 @@
 class CategoriesController < ApplicationController
+  skip_before_action :require_login, only: [:index]
   def index
     @categories = Category.all
   end
-
 
   def new
     @category = Category.new
@@ -18,6 +18,10 @@ class CategoriesController < ApplicationController
       flash.now[:error] = "Category not created; see below for specifics"
       render "new"
     end
+  end
+
+  def show
+
   end
 
   private
