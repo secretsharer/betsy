@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
-  get 'merchants/:id/products', to: "merchants#products", as: "account_products"
-  get 'merchants/:id/orders', to: "merchants#orders", as: "account_orders"
+  get 'merchants/:id/account/products', to: "merchants#products", as: "account_products"
+  get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
 
   get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
