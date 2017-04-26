@@ -33,9 +33,6 @@ Rails.application.routes.draw do
   get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
 
-  get "/:session_id/payments/edit", to: "payments#edit", as: "edit_payment"
-  patch "/:session_id/payments/", to: "payments#update", as: "update_payment"
-
   get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
   patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
 
