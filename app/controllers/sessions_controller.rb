@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  # skip_before_action :require_login, only: [:create]
+  skip_before_action :require_login, only: [:create]
 
   def create
     auth_hash = request.env['omniauth.auth']
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  
+
   def logout
     #session[:merchant_id] = nil
     session.delete(:merchant_id)

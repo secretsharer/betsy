@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :setup_session_and_cart
+  before_action :require_login
 
   helper_method :current_merchant
 
@@ -15,6 +16,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_login
+    if current_merchant.nil?
+      flash[:error] = "You must be logged in to do that"
+      redirect_to root_path
+    end
+  end
+
 
   def render_404
     render file: "#{ Rails.root }/public/404.html", status: 404
@@ -25,7 +33,6 @@ class ApplicationController < ActionController::Base
       @login_merchant = Merchant.find_by(id: session[:merchant_id])
     end
   end
-
 
   def current_order
     if session[:order_id] != nil
