@@ -34,6 +34,6 @@ Rails.application.routes.draw do
 
 
   get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
-  patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
+  patch "/:carts/show/payment/", to: "payments#update", as: "cart_update_payment"
 
 end

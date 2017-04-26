@@ -1,21 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Betsy</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header class="header row">
+    <section class= "columns large-9 small-12 head">
+    <h2><%= link_to "Ghosty", root_path %></h2>
+    <small>So good it's scary</small>
+    </section>
+    <nav class="columns large-3 small-12 nav-bar">
+      <ul class = "top row">
+        <li><%= link_to "Cart", carts_show_path, class: "button nav-button" %></li>
+        <li><%= link_to "Categories", categories_path, class: "button nav-button"  %></li>
+        <% if current_merchant %>
+          <li>
+            Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %>
+          </li>
+          <li>
+            <%= link_to "Log Out", logout_path, method: :post, class: "button nav-button"  %>
+          </li>
+          <% else %>
+          <li>
+            Not logged in
+          </li>
+          <li>
+            <%= link_to "Log In Using GitHub", "/auth/github", class: "button nav-button"  %>
+          </li>
+          <% end %>
+        </ul>
+    </nav>
+  </header>
   <section class="login">
-    <% if current_merchant %>
-        <p>Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %></p>
-        <%= link_to "Log Out", logout_path, method: :post %>
-      <% else %>
-        <p >Not logged in</p>
-        <%= link_to "Log In Using GitHub", "/auth/github" %>
-      <% end %>
+
 
   </section>
 
@@ -27,9 +50,9 @@
 
 
   <body>
-    <%= link_to "Ghosty", root_path %>
-    <%= link_to "Cart", carts_show_path %>
-    <%= link_to "Categories", categories_path %>
+
+
     <%= yield %>
+
   </body>
 </html>
