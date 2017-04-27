@@ -52,8 +52,16 @@ ActiveRecord::Schema.define(version: 20170427004541) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "email"
+    t.string   "address"
+    t.string   "cc_name"
+    t.integer  "cc_num"
+    t.string   "cc_expiry"
+    t.integer  "cc_security"
+    t.integer  "zip"
+    t.string   "status"
   end
 
   create_table "products", force: :cascade do |t|
