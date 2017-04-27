@@ -28,5 +28,5 @@
 </p>
 
 <p>
-  <%= link_to "Checkout", new_payment_path (params[:order_id] = @order.id) %>
+  <%= link_to "Checkout", new_payment_path, params[:order_id] %>
 </p>

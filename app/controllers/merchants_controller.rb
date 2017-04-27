@@ -1,6 +1,10 @@
 class MerchantsController < ApplicationController
+  #looks for the merchant based on the params[:id] value for these methods
   before_action :find_merchant, only: [:show, :edit, :update]
+  #we want to make sure the user and the merchant are the same for editing, deleting a merchant
   before_action :user_matches_merchant, except: [:index, :show, :new, :create]
+
+  #you can see a list of merchants, create the merchant and show public merchant info without being logged in
   skip_before_action :require_login, only: [:index, :create, :show]
 
   def index

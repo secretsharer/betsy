@@ -7,15 +7,19 @@ class SessionsController < ApplicationController
 
     # if it's not there in the db, then make/save it
     if merchant.nil?
+
       merchant = Merchant.create_from_github(auth_hash)
       if merchant.nil?
         flash[:error] = "Could not log in"
-        redirect_to root_path
+      else
+        session[:merchant_id] = merchant.id
+        flash[:success] = "Logged in successfully!"
       end
+    else
+      session[:merchant_id] = merchant.id
+      flash[:success] = "Logged in successfully!"
     end
-    # if it is there, then save some data to session then redirect somewhere
-    session[:merchant_id] = merchant.id
-    flash[:success] = "Logged in successfully!"
+
     redirect_to root_path
   end
 
