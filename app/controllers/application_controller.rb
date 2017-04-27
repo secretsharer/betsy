@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   before_action :require_login
 
   helper_method :current_merchant
+  helper_method :user_matches_merchant
+  helper_method :category_names
 
   #trying to setup a guest session and cart at the start of running the website but the values in the session hash don't persist (so a new cart is created every time you do anything)
   def setup_session_and_cart
@@ -16,10 +18,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def category_names
+
+    names = Category.all.map { |category| [category.name, category.id] }
+    return names
+  end
+
   def require_login
     if current_merchant.nil?
       flash[:error] = "You must be logged in to do that"
       redirect_to root_path
+    end
+  end
+
+  def user_matches_merchant
+    if current_merchant.id != (params[:id] || params[:merchant_id]).to_i
+      flash[:error] = "**You do not have permission to view that page**"
+      redirect_to :back
     end
   end
 
