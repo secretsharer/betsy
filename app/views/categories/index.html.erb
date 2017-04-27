@@ -1,9 +1,12 @@
+<main class="row">
+
 <h1>Categories</h1>
 <ul>
 <% @categories.each do |category| %>
-  <h4>Name: <%= category.name %></h4>
+  <h3><%= category.name %></h3>
   <ul>
-    <li><%= link_to "Products", category_products_path(category.id) %></li>
+    <li><%= link_to "See all #{category.name} products", category_products_path(category.id) %></li>
   </ul>
 <% end %>
 </ul>
+</main>
