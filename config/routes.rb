@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'products#index'
   post '/logout', to: 'sessions#logout', as: 'logout'
 
+  patch '/merchants/:merchant_id/products/:id', to: 'products#product_status', as: "product_status"
+
   resources :merchants do
     resources :products
   end
