@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     products = Product.all
     end
 
-    @active_products = products.map { |p| p if p.status}
+    @active_products = products.select { |p| p if p.status}
   end
 
   def show; end
