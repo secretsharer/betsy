@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
+  #don't need to be logged in to see the list of categories through index, but we do want to restrict the ability to create categories to logged in users only
   skip_before_action :require_login, only: [:index]
+
   def index
     @categories = Category.all
   end
@@ -20,9 +22,7 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show
-
-  end
+  def show; end
 
   private
 
