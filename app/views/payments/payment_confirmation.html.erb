@@ -4,13 +4,13 @@
   Your payment has processed successfully!
 </p>
 
-<% @order_items.each do |item| %>
+<% @orderitems.each do |item| %>
 <ul>
-  <li>
-    <%= link_to item.product.name %>
-  </li>
-  <li>
-    <%= item.quantity %>
-  </li>
-
+  <li>Product: <%= link_to item.product(:product_id).name, product_path(item.product_id) %></li>
+  <li>Quantity: <%= item.quantity %></li>
+  <li>Subtotal: <%= item.product(:product_id).price %></li>
+  <li>Total: </li>
+  <li>Order placed at: DateTime</li>
+  <li>Order Status: </li>
+</ul>
   <% end %>
