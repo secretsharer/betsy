@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#logout', as: 'logout'
 
   resources :merchants do
-    resources :products, only: [:index, :new, :create]
+    resources :products, only: [:index, :new, :create, :edit]
   end
 
 
@@ -36,4 +36,8 @@ Rails.application.routes.draw do
   # patch "/:carts/show/payment/", to: "payments#update", as: "update_cart_payment"
 
   resources :payments, only: [:new, :create]
+
+  get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
+  patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
+
 end
