@@ -13,9 +13,9 @@ class Merchant < ApplicationRecord
     merchant.save ? merchant : nil # if it's saved, it will return the user. Otherwise, it returns nil. w/o this, it will return true or false
   end
 
-  def products
-    @products = Merchant.find_by_id(params[:id]).products
-  end
+  # def products
+  #   @products = Merchant.find_by_id(params[:id]).products
+  # end
 
   def orders
     @orders = Order.where()

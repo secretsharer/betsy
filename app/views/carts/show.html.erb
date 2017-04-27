@@ -1,23 +1,25 @@
-<h4>Total Items in Cart: <%= @order_items != nil ? @order_items.length : 0 %></h4>
+<main class="row">
+<h2>Total Items in Cart: <%= @order_items != nil ? @order_items.length : 0 %></h2>
 <% @order_items.each do |item| %>
 <ul>
   <li>
-    <%= item.product.name %>
+    <h3><%= item.product.name %></h3>
   </li>
   <li>
-    <%= item.quantity %>
+    Quantity: <%= item.quantity %>
+  </li>
+
+  <li>
+    <%= form_for item, url: order_item_path(item.id), method: :patch do |f| %>
+    <%= f.select(:quantity, (1..item.product.quantity)) %>
+    <%= f.submit "Update Quantity", class: "button" %>
+    <% end %>
   </li>
   <li>
     <%= link_to "Delete", destroy_item_path(:id => item.id),
     data: { confirm: "Are you sure you want to delete this item?" },
     method: :delete, class: "alert button"
 %>
-  </li>
-  <li>
-    <%= form_for item, url: order_item_path(item.id), method: :patch do |f| %>
-    <%= f.select(:quantity, (1..item.product.quantity)) %>
-    <%= f.submit "Update Quantity" %>
-    <% end %>
   </li>
 </ul>
 
@@ -26,7 +28,8 @@
 <p>
   Your subtotal is <%= @order.subtotal %> ghost dollas
 </p>
+</main>
 
-<p>
-  <%= link_to "Checkout", new_payment_path, params[:order_id] %>
-</p>
+<!-- <p>
+  <%#= link_to "Checkout", new_payment_path, params[:order_id] %>
+</p> -->
