@@ -1,0 +1,16 @@
+<h2>Payment Confirmation</h2>
+
+<p>
+  Your payment has processed successfully!
+</p>
+
+<% @order_items.each do |item| %>
+<ul>
+  <li>
+    <%= link_to item.product.name %>
+  </li>
+  <li>
+    <%= item.quantity %>
+  </li>
+
+  <% end %>

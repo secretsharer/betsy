@@ -1,10 +1,20 @@
-<h3>Merchants can edit product info here</h3>
+<h2>Hello, <%= current_merchant.username %>. Here's info about your products.</h2>
 
+<h3>Active Products</h3>
+<p>You can edit product information (like categories or quantity) or retire a product so it's no longer avaialble for purchse.</p>
 <% @products.each do |product| %>
-  <li><%= product.name %></li>
-  <p><%= link_to "Edit this product", edit_product_path(product.id) %></p>
-  <p>Need link to retire product</p>
-  <p>Need way to edit product categories</p>
+  <% if product.status %>
+  <p><%= product.name %>: <%= link_to "edit", edit_merchant_product_path(current_merchant.id, product.id) %> <%= link_to "retire",  product_status_path(current_merchant.id, product.id), method: :patch %></p>
 
+
+  <% end %>
+<% end %>
+
+<h3>Retired Products</h3>
+<p>These products are not currently available for customers to purchase. If you'd like to make them available, click "make active" </p>
+<% @products.each do |product| %>
+  <% if !product.status %>
+  <p><%= product.name %>: <%= link_to "make active",  product_status_path(current_merchant.id, product.id), method: :patch %></p>
+  <% end %>
 
 <% end %>

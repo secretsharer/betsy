@@ -3,9 +3,13 @@ class OrderItemsController < ApplicationController
 
   def create
 
+    #i think this logic is checking to see if you have an Orderitem of this Product type already associated with this Order
     if Orderitem.where(:order_id => current_order).length != 0 && Orderitem.where(:product_id => params[:order_items][:product_id]).length != 0
-      
+
       flash[:error] = "This item is already in your cart"
+
+    #checking to see if product is in stock (the way the view works this is not really necessary but maybe there is some workaround b/c users always figure out that shit )
+    #the product_id and the quantity we want to check for the orderitem is coming through this nested hash b/c from the 'form_for :order_items' on the products show page
     elsif Product.in_stock(params[:order_items][:product_id], params[:order_items][:quantity])
       @orderitem = Orderitem.new
       @orderitem.product_id = params[:order_items][:product_id]
