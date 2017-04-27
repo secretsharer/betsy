@@ -1,17 +1,23 @@
 class PaymentsController < ApplicationController
+  def new; end
 
+  def create
+    order = Order.find_by_id(params[:order_id])
 
-  def apply_payment
-    #get a form
-    #amount to pay = current_order.update_subtotal
+    order.status = "PADI (paid: you did)"
+    order.email = params[:order][:email]
+    order.address = params[:order][:address]
+    order.cc_num = params[:order][:cc_num]
+    order.cc_expiry = params[:order][:cc_expiry]
+    order.cc_security = params[:order][:cc_security]
+    order.zip = params[:order][:zip]
 
-
-    #render new
-    #redirect_to payment_path
+    if order.save
+      redirect_to payment_confirmation_path
+    else
+      flash.now[:error] = "Error has occurred"
+      render "new"
+    end
   end
 
-  def payment_fulfilled
-    #order_payment = current_order
-
-  end
 end
