@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   root 'products#index'
   post '/logout', to: 'sessions#logout', as: 'logout'
 
+  patch '/merchants/:merchant_id/products/:id', to: 'products#product_status', as: "product_status"
+
   resources :merchants do
-    resources :products, only: [:index, :new, :create]
+    resources :products
   end
 
 
@@ -32,8 +34,14 @@ Rails.application.routes.draw do
   get 'merchants/:id/account/products', to: "merchants#products", as: "account_products"
   get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
+  # get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
+  # patch "/:carts/show/payment/", to: "payments#update", as: "update_cart_payment"
+
+  resources :payments, only: [:new, :create]
 
   get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
   patch "/:carts/show/payment/", to: "payments#update", as: "cart_update_payment"
+
+  get "/:carts/show/payment_confirmation", to: "payments#payment_confirmation", as: "payment_confirmation"
 
 end

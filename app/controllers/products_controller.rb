@@ -21,6 +21,12 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
+    params[:product][:categories].each do |category|
+      if category != ""
+        @product.categories << Category.find_by_id(category)
+      end
+    end
+
     if @product.update product_params
       redirect_to product_path
     else
@@ -54,6 +60,24 @@ class ProductsController < ApplicationController
     end
   end
 
+  def product_status
+    product = Product.find_by_id(params[:id])
+    if product.status
+      product.status = false
+    else
+      product.status = true
+    end
+
+    if product.save
+      if !product.status
+        flash[:success] = "You retired #{product.name}. It's no longer available for purchase."
+      else
+        flash[:success] = "You have activated #{product.name}. It's now available for purchase."
+
+      end
+      redirect_to account_products_path(current_merchant.id)
+    end
+  end
 
 
   private

@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_matches_merchant
-    if current_merchant.id != (params[:id] || params[:merchant_id]).to_i
+    if current_merchant.id != ( params[:merchant_id] || params[:id] ).to_i
       flash[:error] = "**You do not have permission to view that page**"
       redirect_to :back
     end
