@@ -1,31 +1,28 @@
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+<main class="row">
 
-<h3>Product: <%= @product.name %></h3>
+<section class="row product">
+  <h3><i class="em em-moon"></i>Product: <%= @product.name %><i class="em em-moon"></i></h3>
 
 
-  <li><%= link_to @product.name, product_path(@product) %></li>
   <p>Merchant: <%= link_to @product.merchant.name, merchant_path(@product.merchant) %></p>
   <p><%= @product.description %></p>
-  <p>Cost: <%= @product.price %></p>
+  <p>Cost: <%= @product.price.round(2) %></p>
   <p><%= @product.quantity %> in stock</p>
   <p>Categories: <% @product.categories.each do |c| %><%= c.name %><% end %></p>
-
+  <p>Quantity:</p>
   <%= form_for :order_items, url: order_items_path, method: :post do |f| %>
   <%= f.hidden_field :product_id, value: @product.id %>
   <%= f.select(:quantity, (1..@product.quantity)) %>
 
-  <%= f.submit "Add to Cart" %> (Currently redirects to product page; should redirect to cart )</p>
+  <%= f.submit "Add to Cart", class: "button" %>
   <% end %>
+</section>
 
-  <%= form_for :reviews, url: reviews_path, method: :post do |f| %>
-  <%= f.label "How spooky was this product:" %><i class="em em-scream"></i>
-  <%= f.select(:rating, (1..5)) %>
-  <%= f.label :description %>
-  <%= f.text_area :description, size: "40x10" %>
-  <%= f.hidden_field :product_id, value: @product.id %>
-  <%= f.submit "Tell someone who cares" %>
-  <% end %>
 
+<section class="row review">
+
+  <h3><i class="em em-scream"></i>Review This Product<i class="em em-scream"></i></h3>
   <p>
     Average spookiness: <% @product.rating.times do %><i class="em em-scream"></i><% end %>
   </p>
@@ -35,3 +32,17 @@
     <%= r.description %>
   </p>
   <% end %>
+  <%= form_for :reviews, url: reviews_path, method: :post do |f| %>
+  <%= f.label "How spoopy was this product" %>
+  <%= f.select(:rating, (1..5)) %>
+  <%= f.label :description %>
+  <%= f.text_area :description, size: "40x10" %>
+  <%= f.hidden_field :product_id, value: @product.id %>
+  <%= f.submit "Tell someone who cares", class: "button" %>
+  <% end %>
+
+
+
+</section>
+
+</main>

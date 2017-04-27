@@ -63,7 +63,23 @@ products = [
     price: 4.50,
     quantity: 10,
     merchant_id: 2,
-    description: "a beautiful spooky hat"
+    description: "a beautiful spooky hat",
+  },
+
+  { name: "mirror lipstick",
+    price: 9.95,
+    quantity: 1000,
+    merchant_id: 10,
+    description:    "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
+    image_url: "http://suziecheel.com/wp-content/uploads/2016/01/mirror-enough.jpg"
+  },
+
+  { name: "mini chalkboard",
+    price: 9.95,
+    quantity: 6,
+    merchant_id: 12,
+    description:    "Undersized, handheld chalk board. Sneak up behind someone and drag your 'nails' across this mini-slate. Mobile terror. Be *that* ghost",
+    image_url: "http://factorydirectcraft.com/pimages/20120809085805-430997/mini_chalkboards_3.jpg"
   },
 
   { name: "haunted house",
@@ -143,8 +159,18 @@ products = [
     price: 400.00,
     quantity: 11,
     merchant_id: 5,
-    description: "Use it to woo your love from beyond"
+
+    description: "Use it to woo your love from beyond",
+    image_url: "https://c1.staticflickr.com/7/6230/6296252809_76656f781b_b.jpg"
   },
+
+  { name: "Casual Friday - 1000 Thread-Count Egyptian Cotton Sheet Set",
+    price: 80.00,
+    quantity: 10,
+    merchant_id: 10,
+    description: "Running short on time? Not feeling you look today? Consider going Classic! Get a helping hand from this traditional 1000 threat count egyptian cotton sheet set. Yield: Enough for you and a 'friend'",
+    image_url: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29005250"
+  }
 ]
 
 
