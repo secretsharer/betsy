@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :new, :create, :edit]
   end
 
-
   resources :orders
 
   resources :categories, only: [:index, :new, :create] do
@@ -28,16 +27,12 @@ Rails.application.routes.draw do
 
   resources :order_items, only: [:create, :update, :destroy]
 
-
   get 'merchants/:id/account/products', to: "merchants#products", as: "account_products"
   get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
-  # get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
-  # patch "/:carts/show/payment/", to: "payments#update", as: "update_cart_payment"
+  # resources :payments, only: [:new, :create]
 
-  resources :payments, only: [:new, :create]
-
-  get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
-  patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
+  get "/carts/show/payment/", to: "payments#new", as: "new_payment"
+  post "/carts/show/payment/", to: "payments#create", as: "paid_payment"
 
 end
