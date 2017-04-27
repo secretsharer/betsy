@@ -5,15 +5,18 @@ class ProductsController < ApplicationController
 
 
   def index
+    #returns products that are active
     if params[:merchant_id]
       merchant = Merchant.find_by(id: params[:merchant_id])
-      @products = merchant.products
+      products = merchant.products
     elsif params[:category_id]
       category = Category.find_by(id: params[:category_id])
-      @products = category.products
+      products = category.products
     else
-    @products = Product.all
+    products = Product.all
     end
+
+    @active_products = products.map { |p| p if p.status}
   end
 
   def show; end
