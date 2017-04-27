@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
         @product.categories << Category.find_by_id(category)
       end
     end
+    
     if @product.update product_params
       redirect_to product_path
     else
