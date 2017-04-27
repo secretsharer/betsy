@@ -39,4 +39,8 @@ Rails.application.routes.draw do
   get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
   patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
 
+<<<<<<< HEAD
+=======
+  get "/:carts/show/payment_confirmation", to: "payments#payment_confirmation", as: "payment_confirmation"
+>>>>>>> om_payments_controller
 end
