@@ -18,5 +18,11 @@ class OrdersController < ApplicationController
     #session[:cart] = Order.new
   end
 
+  def checkout
+    
+
+
+  end
+
 
 end
