@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/logout', to: 'sessions#logout', as: 'logout'
 
   resources :merchants do
-    resources :products, only: [:index, :new, :create, :edit]
+    resources :products
   end
 
 

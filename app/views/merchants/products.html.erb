@@ -1,10 +1,14 @@
 <h3>Merchants can edit product info here</h3>
 
 <% @products.each do |product| %>
-  <li><%= product.name %></li>
-  <p><%= link_to "Edit this product", edit_merchant_product_path(current_merchant.id, product.id) %></p>
-  <p>Need link to retire product</p>
-  <p>Need way to edit product categories</p>
+  <h4><%= product.name %></h4>
+  <ul>
+    <li><%= link_to "Edit this product", edit_merchant_product_path(current_merchant.id, product.id) %></li>
+    <li>Need link to retire product</li>
+    <li>Need way to edit product categories</li>
+
+  </ul>
+
 
 
 <% end %>
