@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "/auth/:provider/callback", to: "sessions#create"
+  get "/auth/:provider/callback", to: "sessions#create", as: 'auth_callback'
 
   get 'carts/show'
   delete 'carts/show', to: 'order_items#destroy', as: :destroy_item
@@ -34,12 +34,9 @@ Rails.application.routes.draw do
   get 'merchants/:id/account/products', to: "merchants#products", as: "account_products"
   get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
-  # get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
-  # patch "/:carts/show/payment/", to: "payments#update", as: "update_cart_payment"
 
   resources :payments, only: [:new, :create]
 
-  get "/:carts/show/payment/", to: "payments#payment", as: "new_payment"
   patch "/:carts/show/payment/", to: "payments#update", as: "update_payment"
 
   get "/:carts/show/payment_confirmation", to: "payments#payment_confirmation", as: "payment_confirmation"
