@@ -64,6 +64,7 @@ products = [
     quantity: 10,
     merchant_id: 2,
     description: "a beautiful spooky hat",
+    image_url: "http://www.villagehatshop.com/photos/product/standard/4511390S61882/big-size-hats/victorian-wool-felt-top-hat.jpg"
   },
 
   { name: "mirror lipstick",
@@ -86,49 +87,56 @@ products = [
     price: 300,
     quantity: 1,
     merchant_id: 4,
-    description: "move-in ready"
+    description: "move-in ready",
+    image_url: "http://www.gafollowers.com/wp-content/uploads/2015/10/342212-haunted-house.jpg"
   },
 
   { name: "purple crayon",
     price: 2.75,
     quantity: 15,
     merchant_id: 5,
-    description: "made from high quality wax"
+    description: "made from high quality wax",
+    image_url: "http://d3d71ba2asa5oz.cloudfront.net/12014628/images/crayonpurple1200.jpg"
 
   },
   { name: "Levitator",
     price: 11.50,
     quantity: 23,
     merchant_id: 2,
-    description: "move objects with ease"
+    description: "move objects with ease",
+    image_url: "http://www.wilko.com/content/ebiz/wilkinsonplus/invt/0299456/0299456_l.jpg"
 
   },
   { name: "pumpkin helmet",
     price: 9.75,
     quantity: 15,
     merchant_id: 2,
-    description: "perfect for headless ghosts"
+    description: "perfect for headless ghosts",
+    image_url: "http://arts-stew.com/wp-content/uploads/2012/10/Smiling-Halloween-Pumpkins-400x299.jpg"
 
   },
   { name: "can of spirits",
     price: 4.15,
     quantity: 15,
     merchant_id: 3,
-    description: "prank your friends at your next ghostly party. Spirits comein assorted shapes and sizes. Ten per can."
+    description: "prank your friends at your next ghostly party. Spirits comein assorted shapes and sizes. Ten per can.",
+    image_url: "http://clipground.com/images/tin-can-clipart-5.jpg"
 
   },
   { name: "Sugar Bats",
     price: 0.75,
     quantity: 90,
     merchant_id: 4,
-    description: "Delicious snack while waiting for your next spooking session"
+    description: "Delicious snack while waiting for your next spooking session",
+    image_url: "http://stgeorgecookies.com/wp-content/uploads/2012/10/dsc_0299.jpg"
 
   },
   { name: "Secret passageway",
     price: 63.45,
     quantity: 7,
     merchant_id: 5,
-    description: "Create a portal from the basement to the bathroom with ease. (you don't need this product; you are a ghost who can travel through solid objects)."
+    description: "Create a portal from the basement to the bathroom with ease. (you don't need this product; you are a ghost who can travel through solid objects).",
+    image_url: "http://marshauntedhouse.com/MarsHauntedHouse/Images/home_background.jpg"
 
   },
 
@@ -136,24 +144,29 @@ products = [
     price: 40.00,
     quantity: 37,
     merchant_id: 1,
-    description: "Perfect for popping out of backyard pet graves."
+    description: "Perfect for popping out of backyard pet graves.",
+    image_url: "https://cdn.shopify.com/s/files/1/0870/8326/products/harvey_2nd_class_1_large__02526_d353e676-e236-4246-88bf-690550fa149b_large.jpeg?v=1448108932"
   },
   { name: "Army of Ghosts",
     price: 1500.00,
     quantity: 2,
     merchant_id: 3,
-    description: "How else can we defeat Sauron?"
+    description: "How else can we defeat Sauron?",
+    image_url: "https://img.clipartfest.com/e793e59e4e1ed2b6b79506cf68fd4787_3141kb-5942-x-4982-cute-halloween-ghosts-clipart_5942-4982.png"
   },
   { name: "Frog",
     price: 2.00,
     quantity: 72,
     merchant_id: 1,
-    description: "Perfect as a gift for the witches and wizards in your life."
+    description: "Perfect as a gift for the witches and wizards in your life.",
+    image_url: "http://kids.nationalgeographic.com/content/dam/kids/photos/articles/Other%20Explore%20Photos/R-Z/Wacky%20Weekend/Frogs/ww-frogs-budgetts.jpg.adapt.945.1.jpg"
   },
   { name: "Balloon Ghost",
     price: 3.50,
     quantity: 73,
     merchant_id: 1,
+    description: "Just a balloon that looks like a ghost. What else do you want from me?",
+    image_url: "http://4.bp.blogspot.com/-7TrmD9lWnps/VCFRC8JDZJI/AAAAAAAAZ74/FL5yOT7rcQc/s1600/Halloween-Balloons-1.jpg"
   },
   { name: "Potting Wheel",
     price: 400.00,
