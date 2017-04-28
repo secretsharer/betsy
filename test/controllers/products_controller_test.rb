@@ -32,7 +32,7 @@ describe ProductsController do
     must_respond_with :success
   end
 
-  it "update should update a product or render edit" do
+  it "update should update a product" do
     #passes
     login_user(merchants(:dan))
     put merchant_product_path(merchants(:dan).id, products(:banana).id), params: {product: { quantity: 2 } }
@@ -41,6 +41,12 @@ describe ProductsController do
     must_redirect_to merchant_products_path(merchants(:dan).id)
   end
 
+  it "update should not save if the form is missing required values" do
+    #passes
+    login_user(merchants(:dan))
+    put merchant_product_path(merchants(:dan).id, products(:banana).id), params: {product: { name: nil } }
+    flash[:error].must_include "Sorry, something went wrong and we couldn't edit that product"
+  end
 
   it "should get the new page" do
     #passes
@@ -76,26 +82,39 @@ describe ProductsController do
   end
 
   it "should retire a product that is active" do
-    skip
+    #passes
     #this test sucks
     apple = products(:apple)
-    puts apple.status
     apple.status.must_equal true
     login_user(merchants(:dan))
     patch product_status_path(merchants(:dan), apple.id)
-    puts apple.status
-    puts "flash: #{flash[:success]}"
-    puts "flash error: #{flash[:error]}"
-    puts apple.status
+    apple.reload
     apple.status.must_equal false
   end
 
   it "should not remove a retired product from the database" do
+    #passes
+    proc   {
+      apple = products(:apple)
+      login_user(merchants(:dan))
+      patch product_status_path(merchants(:dan), apple.id)
+      apple.reload
+   }.must_change 'Product.count', 0
 
   end
 
   it "should make active a product that is retired" do
-    
+    #passes
+    apple = products(:apple)
+    apple.status.must_equal true
+    login_user(merchants(:dan))
+    patch product_status_path(merchants(:dan), apple.id)
+    apple.reload
+    apple.status.must_equal false
+    patch product_status_path(merchants(:dan), apple.id)
+    apple.reload
+    apple.status.must_equal true
+
   end
 
 end

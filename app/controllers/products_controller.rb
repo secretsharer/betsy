@@ -73,7 +73,7 @@ class ProductsController < ApplicationController
     elsif product.status
       product.status = false
     end
-    
+
     product.save
 
     if product.save
@@ -82,8 +82,6 @@ class ProductsController < ApplicationController
       else
         flash[:success] = "You have activated #{product.name}. It's now available for purchase."
       end
-    else
-      flash[:error] = "Something spooky has happened."
     end
 
     redirect_to account_products_path(current_merchant.id)
