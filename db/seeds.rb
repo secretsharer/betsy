@@ -77,7 +77,16 @@ end
 puts Category.all.length
 
 products = [
-  { name: "ghost hat",
+  {
+    name: "Code Ghost",
+    price: 10.00,
+    quantity: 1000,
+    merchant_id: 5,
+    description: "Terrorize brogrammers everywhere with code errors that mysteriously disappear and re-appear. Gitmaggedon is upon your enemies.",
+    image_url: "http://1.bp.blogspot.com/_NYeAv2POONQ/TERz4A7yV5I/AAAAAAAAAGk/i4o13oWagsA/s400/cap1_0001.jpg"
+  },
+
+  { name: "Ghost Hat",
     price: 4.50,
     quantity: 10,
     merchant_id: 2,
@@ -85,10 +94,10 @@ products = [
     image_url: "http://www.villagehatshop.com/photos/product/standard/4511390S61882/big-size-hats/victorian-wool-felt-top-hat.jpg",
   },
 
-  { name: "mirror lipstick",
+  { name: "Mirror Lipstick",
     price: 9.95,
     quantity: 1000,
-    merchant_id: 1,
+    merchant_id: 3,
     description: "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
     image_url: "http://suziecheel.com/wp-content/uploads/2016/01/mirror-enough.jpg"
   },
@@ -161,7 +170,7 @@ products = [
     price: 80.00,
     quantity: 10,
     merchant_id: 1,
-    description: "Running short on time? Not feeling you look today? Consider going Classic! Get a helping hand from this traditional 1000 threat count egyptian cotton sheet set. Yield: Enough for you and a 'friend'",
+    description: "Running short on time? Not feeling your look today? Consider going Classic! Get a helping hand from this traditional 1000 threat count egyptian cotton sheet set. Yield: Enough for you and a 'friend'",
     image_url: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29005250"
   },
 
@@ -201,6 +210,7 @@ products = [
     image_url: "https://c1.staticflickr.com/7/6230/6296252809_76656f781b_b.jpg"
 
   }
+
 
 
 ]
