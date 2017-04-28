@@ -28,5 +28,4 @@ class PaymentsController < ApplicationController
     end
   end
 
-
 end
