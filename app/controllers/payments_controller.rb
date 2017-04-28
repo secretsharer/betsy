@@ -1,4 +1,5 @@
 class PaymentsController < ApplicationController
+  skip_before_action :require_login
   def new; end
 
   def payment_confirmation

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get "/auth/:provider/callback", to: "sessions#create", as: 'auth_callback'
 
-  get 'carts/show'
+  get 'carts/show', to: 'carts#show'
   delete 'carts/show', to: 'order_items#destroy', as: :destroy_item
 
   root 'products#index'
@@ -35,8 +35,7 @@ Rails.application.routes.draw do
 
   # resources :payments, only: [:new, :create]
 
-  get "/:carts/show/payment/", to: "payments#new", as: "new_payment"
-  patch "/:carts/show/payment/", to: "payments#update", as: "cart_update_payment"
+  get "/carts/show/payment/", to: "payments#new", as: "new_payment"
 
   patch "/carts/show/payment/", to: "payments#update", as: "update_payment"
 
