@@ -21,7 +21,7 @@
         <li><%= link_to "Categories", categories_path, class: "button nav-button"  %></li>
         <% if current_merchant %>
           <li>
-            Logged in as: <%= link_to current_merchant.username, merchant_path(current_merchant) %>
+            Logged in as: <%= link_to current_merchant.name, merchant_path(current_merchant) %>
           </li>
           <li>
             <%= link_to "Log Out", logout_path, method: :post, class: "button nav-button"  %>
