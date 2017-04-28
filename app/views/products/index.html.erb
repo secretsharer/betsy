@@ -3,16 +3,12 @@
 
 
 
-<% @products.each do |product| %>
+<% @active_products.each do |product| %>
 <section class="top columns large-4 small-12" >
   <ul>
     <li><%= image_tag(product.image_url) %></li>
     <h3><li><%= link_to product.name, product_path(product) %></li></h3>
     <p>Merchant: <%= link_to product.merchant.name, merchant_path(product.merchant) %></p>
-    <!-- <p><%= product.description %></p>
-    <p>Cost: <%= product.price %></p>
-    <p><%= product.quantity %> in stock</p>
-    <p>TBD: Add product categories</p> -->
   </ul>
 </section>
 <% end %>

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_merchant
   helper_method :user_matches_merchant
   helper_method :category_names
+  helper_method :current_order
 
   #upon starting the browser, set up a new order with and order id and also set up a guest for session
   #store the order and guest info in the session hash

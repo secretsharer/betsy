@@ -1,7 +1,6 @@
 <h2>Pay Now</h2>
 
-<%= form_for :orders, url: payments_path, method: :patch do |f| %>
-<%= f.hidden_field :order_id, value: params[:order_id] %>
+<%= form_for :order, method: :patch do |f| %>
 
 <%= f.label "Email" %>
 <%= f.text_field :email %><br />

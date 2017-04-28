@@ -32,12 +32,17 @@ Rails.application.routes.draw do
   get 'merchants/:id/account/products', to: "merchants#products", as: "account_products"
   get 'merchants/:id/account/orders', to: "merchants#orders", as: "account_orders"
 
+<<<<<<< HEAD
 
   # resources :payments, only: [:new, :create]
 
   get "/:carts/show/payment/", to: "payments#new", as: "new_payment"
   patch "/:carts/show/payment/", to: "payments#update", as: "cart_update_payment"
 
+=======
+  get "/carts/show/payment/", to: "payments#new", as: "new_payment"
+  patch "/carts/show/payment/", to: "payments#update", as: "update_payment"
+>>>>>>> 721db4d073db717af4b01706f3ddac1bcb3f1482
 
   get "/carts/show/payment_confirmation", to: "payments#payment_confirmation", as: "payment_confirmation"
 
