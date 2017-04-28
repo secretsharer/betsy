@@ -51,11 +51,7 @@ class MerchantsController < ApplicationController
     @products = Merchant.find_by_id(params[:id]).products
   end
 
-  def destroy
-    Merchant.destroy(params[:id])
 
-    redirect_to merchants_path
-  end
 
 
   private

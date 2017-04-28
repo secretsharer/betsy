@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428161816) do
+ActiveRecord::Schema.define(version: 20170428211345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170428161816) do
     t.integer "quantity"
     t.integer "merchant_id"
     t.text    "description"
-    t.string  "image_url",   default: "/assets/ghost_placeholder.jpg"
+    t.string  "image_url",   default: "http://img13.deviantart.net/1568/i/2015/280/7/b/donut_ghost_by_doctorhue2-d9cbpmk.png"
     t.boolean "status",      default: true
   end
 

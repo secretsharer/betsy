@@ -19,6 +19,17 @@ it "orderitem should be associated with a session" do
 end
 
 it "should not create an orderitem if it's already in the cart" do
+    post order_items_path, params: { order_items:
+      { product_id: products(:apple).id,
+        quantity: 6
+        }  }
+    proc { post order_items_path, params: { order_items:
+          { product_id: products(:apple).id,
+            quantity: 6
+            }  }
+          }.must_change 'Orderitem.count', 0
+          expect(flash[:error])
+
 end
 
 it "should not create an orderitem is there is not enough quantity of product" do
@@ -36,8 +47,7 @@ it "should update the quantity in the cart" do
         quantity: 3
    }  }
 
-   orderitems(:one).quantity.must_equal 3
-
+   must_respond_with :found
 
 end
 
