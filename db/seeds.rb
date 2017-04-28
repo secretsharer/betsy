@@ -78,8 +78,8 @@ products = [
   { name: "mini chalkboard",
     price: 9.95,
     quantity: 6,
-    merchant_id: 2,
-    description: "Undersized, handheld chalk board. Sneak up behind someone and drag your 'nails' across this mini-slate. Mobile terror. Be *that* ghost",
+    merchant_id: 3,
+    description:    "Undersized, handheld chalk board. Sneak up behind someone and drag your 'nails' across this mini-slate. Mobile terror. Be *that* ghost",
     image_url: "http://factorydirectcraft.com/pimages/20120809085805-430997/mini_chalkboards_3.jpg"
   },
 
@@ -97,7 +97,6 @@ products = [
     merchant_id: 5,
     description: "made from high quality wax",
     image_url: "http://d3d71ba2asa5oz.cloudfront.net/12014628/images/crayonpurple1200.jpg"
-
   },
   { name: "Levitator",
     price: 11.50,
@@ -172,7 +171,6 @@ products = [
     price: 400.00,
     quantity: 11,
     merchant_id: 5,
-
     description: "Use it to woo your love from beyond",
     image_url: "https://c1.staticflickr.com/7/6230/6296252809_76656f781b_b.jpg"
   },

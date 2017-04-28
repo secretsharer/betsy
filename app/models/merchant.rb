@@ -13,7 +13,6 @@ class Merchant < ApplicationRecord
     merchant.save ? merchant : nil # if it's saved, it will return the user. Otherwise, it returns nil. w/o this, it will return true or false
   end
 
-
   # def orders
     # @orders = Order.where()
     # We want all the Orders of a specific Merchant

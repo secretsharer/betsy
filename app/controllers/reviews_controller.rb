@@ -11,7 +11,7 @@ end
 
 def check_merchant
   product_merchant = Product.find_by_id(params[:reviews][:product_id]).merchant
-  if product_merchant.id == current_merchant.id
+  if current_merchant != nil && product_merchant.id == current_merchant.id
     flash[:error] = "**You cannot review your own product**"
     redirect_to :back
   end
