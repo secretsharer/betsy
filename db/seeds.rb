@@ -119,7 +119,7 @@ products = [
     quantity: 15,
     merchant_id: 3,
     description: "prank your friends at your next ghostly party. Spirits comein assorted shapes and sizes. Ten per can.",
-    image_url: "http://clipground.com/images/tin-can-clipart-5.jpg"
+    image_url: "https://thumbs.dreamstime.com/x/food-can-20374972.jpg"
 
   },
   { name: "Sugar Bats",
@@ -137,6 +137,14 @@ products = [
     description: "Create a portal from the basement to the bathroom with ease. (you don't need this product; you are a ghost who can travel through solid objects).",
     image_url: "http://marshauntedhouse.com/MarsHauntedHouse/Images/home_background.jpg"
 
+  },
+
+  { name: "Casual Friday - 1000 Thread-Count Egyptian Cotton Sheet Set",
+    price: 80.00,
+    quantity: 10,
+    merchant_id: 1,
+    description: "Running short on time? Not feeling you look today? Consider going Classic! Get a helping hand from this traditional 1000 threat count egyptian cotton sheet set. Yield: Enough for you and a 'friend'",
+    image_url: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29005250"
   },
 
   { name: "Animated Skeleton",
@@ -173,15 +181,11 @@ products = [
     merchant_id: 5,
     description: "Use it to woo your love from beyond",
     image_url: "https://c1.staticflickr.com/7/6230/6296252809_76656f781b_b.jpg"
-  },
 
-  { name: "Casual Friday - 1000 Thread-Count Egyptian Cotton Sheet Set",
-    price: 80.00,
-    quantity: 10,
-    merchant_id: 4,
-    description: "Running short on time? Not feeling you look today? Consider going Classic! Get a helping hand from this traditional 1000 threat count egyptian cotton sheet set. Yield: Enough for you and a 'friend'",
-    image_url: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=29005250"
   }
+
+
+
 ]
 
 

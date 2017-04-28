@@ -1,3 +1,6 @@
+<main class="row">
+
+
 <h2>Pay Now</h2>
 
 <%= form_for :order, method: :patch do |f| %>
@@ -23,5 +26,7 @@
 <%= f.label "Billing zip code" %>
 <%= f.text_field :zip %>
 
-<%= f.submit %>
+<%= f.submit "Submit Order", class: "button" %>
 <% end %>
+
+</main>
