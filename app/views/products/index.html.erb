@@ -5,6 +5,9 @@
 <h3 class="centering">Ghosty Products for ghosty needs</h3>
 
 <h3 class="columns large-12 small-12"><%= @product_filter %></h3>
+<% if @active_products.empty? %>
+  <p>We are sorry! No <%= @product_filter %> products are available at this time. Please check back soon.</p>
+<% end %>
 <% @active_products.each do |product| %>
 <section class="top columns large-4 small-12 product" >
   <ul>
