@@ -13,7 +13,10 @@ describe Product do
 
   it "must have name present in product" do
     products(:apple).valid?.must_equal true
-    products(:no_name).valid?.must_equal false
+
+    no_name = Product.new
+    no_name.price = 25
+    no_name.valid?.must_equal false
   end
 
   it "must have a unique name" do
@@ -43,5 +46,10 @@ describe Product do
   it "quantity must be greater than 0" do
     products(:zero_quantity).valid?.must_equal false
     products(:banana).valid?.must_equal true
+  end
+
+  it "automatically sets a product to active when it is created" do
+    product = Product.new({name: "fish", price: 6})
+    product.status.must_equal true
   end
 end
