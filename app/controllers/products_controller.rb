@@ -24,23 +24,23 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-    params[:product][:categories].each do |category|
-      if category != ""
-        @product.categories << Category.find_by_id(category)
+
+    if params[:product][:categories] != nil
+      params[:product][:categories].each do |category|
+        if category != ""
+          @product.categories << Category.find_by_id(category)
+        end
       end
     end
 
     if @product.update product_params
-      redirect_to product_path
+
+      flash[:success] = "Product #{@product.name} successfully updated!"
+      redirect_to merchant_products_path(@product.merchant.id), method: :get
     else
+      flash.now[:error] = "Sorry, something went wrong and we couldn't edit that product"
       render 'edit'
     end
-  end
-
-  def destroy
-    Product.destroy(params[:id])
-
-    redirect_to products_path
   end
 
   def new
@@ -50,36 +50,41 @@ class ProductsController < ApplicationController
   def create
     product = Product.new product_params
     product.merchant_id = current_merchant.id
-    params[:product][:categories].each do |category|
-      if category != ""
-        product.categories << Category.find_by_id(category)
+    if params[:product][:categories] != nil
+      params[:product][:categories].each do |category|
+        if category != ""
+          product.categories << Category.find_by_id(category)
+        end
       end
     end
 
     product.save
 
     if product.save
+      flash[:success] = "Product #{product.name} successfully created"
       redirect_to merchant_products_path(current_merchant.id)
     end
   end
 
   def product_status
     product = Product.find_by_id(params[:id])
-    if product.status
-      product.status = false
-    else
+    if !product.status
       product.status = true
+    elsif product.status
+      product.status = false
     end
 
+    product.save
+
     if product.save
-      if !product.status
+      if product.status == false
         flash[:success] = "You retired #{product.name}. It's no longer available for purchase."
       else
         flash[:success] = "You have activated #{product.name}. It's now available for purchase."
-
       end
-      redirect_to account_products_path(current_merchant.id)
     end
+
+    redirect_to account_products_path(current_merchant.id)
   end
 
 

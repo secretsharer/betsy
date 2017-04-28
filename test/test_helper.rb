@@ -6,7 +6,9 @@ require "minitest/rails"
 require "minitest/reporters"  # for Colorized output
 require 'simplecov'
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter "/test/"
+end
 
 
 #  For colorful output!

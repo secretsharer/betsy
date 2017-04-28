@@ -28,8 +28,10 @@
 <p>
   Your subtotal is <%= @order.subtotal %> ghost dollas
 </p>
-</main>
 
-<!-- <p>
-  <%#= link_to "Checkout", new_payment_path, params[:order_id] %>
-</p> -->
+<p>
+  <%= link_to "Checkout", new_payment_path, params[:order_id] %>
+</p>
+
+
+</main>

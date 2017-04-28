@@ -17,12 +17,13 @@ class MerchantsController < ApplicationController
 
   def create
     @merchant = Merchant.create merchant_params
+    @merchant.name = @merchant.username
 
     unless @merchant.id == nil
-      flash[:success] = "Merchant #{@merchant.username} successfully created"
+      flash[:success] = "Merchant #{@merchant.name} successfully created.\nEdit your info on your account page."
       redirect_to merchants_path
     else
-      flash.now[:error] = "Merchant not created; see below for specifics"
+      flash.now[:error] = "Merchant not created. Ghosts must be mad."
       render "new"
     end
   end
@@ -36,6 +37,7 @@ class MerchantsController < ApplicationController
   def edit; end
 
   def update
+    @merchant.name = merchant_params[:name]
     @merchant.username = merchant_params[:username]
     @merchant.email  = merchant_params[:email]
     @merchant.description = merchant_params[:description]
@@ -62,7 +64,7 @@ class MerchantsController < ApplicationController
   private
 
   def merchant_params
-    params.require(:merchant).permit(:username, :email, :description, :uid, :provider)
+    params.require(:merchant).permit(:name, :username, :email, :description, :uid, :provider)
   end
 
   def find_merchant
