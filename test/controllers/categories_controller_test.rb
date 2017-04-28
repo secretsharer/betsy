@@ -1,24 +1,31 @@
 require "test_helper"
 
+
 describe CategoriesController do
-  describe "index" do
-    it "should get index" do
-      get categories_path
-      must_respond_with :success
-    end
-  end
 
-  describe "new" do
-    it "should get new" do
-      get new_category_path
-      must_respond_with :success
-    end
-  end
+  describe "Logged in User tests" do
 
-  describe "create" do
+    before do
+      user = merchants(:dan)
+      OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new(mock_auth_hash(user))
+      get auth_callback_path(:github)
+    end
+
+      it "should get index" do
+        get categories_path
+        must_respond_with :success
+      end
+
+
+      it "should get new" do
+        get new_category_path
+        must_respond_with :ok
+      end
+
+
     it "should be able to create a new category" do
       proc {
-        post categories_path, params: { category: {name: "noises"}  }
+        post categories_path, params: { category: { name: "spoopy" }  }
       }.must_change 'Category.count', 1
 
       must_respond_with :redirect
@@ -29,7 +36,22 @@ describe CategoriesController do
       proc {
         post categories_path, params: { category: {name: ""}  }
       }.must_change 'Category.count', 0
-
     end
+  end
+
+  describe "guest Users" do
+
+    it "user can't get new category page if they are not logged in" do
+      get new_category_path
+      must_respond_with :found
+    end
+
+    it "user can't create category if they are not logged in" do
+      proc {
+        post categories_path, params: { category: { name: "spoopy" }  }
+      }.must_change 'Category.count', 0
+    end
+
+
   end
 end
