@@ -70,24 +70,16 @@ products = [
   { name: "mirror lipstick",
     price: 9.95,
     quantity: 1000,
-<<<<<<< HEAD
     merchant_id: 1,
-=======
-    merchant_id: 3,
->>>>>>> 721db4d073db717af4b01706f3ddac1bcb3f1482
-    description:    "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
+    description: "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
     image_url: "http://suziecheel.com/wp-content/uploads/2016/01/mirror-enough.jpg"
   },
 
   { name: "mini chalkboard",
     price: 9.95,
     quantity: 6,
-<<<<<<< HEAD
     merchant_id: 2,
-=======
-    merchant_id: 4,
->>>>>>> 721db4d073db717af4b01706f3ddac1bcb3f1482
-    description:    "Undersized, handheld chalk board. Sneak up behind someone and drag your 'nails' across this mini-slate. Mobile terror. Be *that* ghost",
+    description: "Undersized, handheld chalk board. Sneak up behind someone and drag your 'nails' across this mini-slate. Mobile terror. Be *that* ghost",
     image_url: "http://factorydirectcraft.com/pimages/20120809085805-430997/mini_chalkboards_3.jpg"
   },
 
