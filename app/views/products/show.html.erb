@@ -2,12 +2,12 @@
 <main class="row">
 
 <section class="row product">
-  <h3><i class="em em-moon"></i>Product: <%= @product.name %><i class="em em-moon"></i></h3>
+  <h3><i class="em em-moon"></i> Product: <%= @product.name %> <i class="em em-moon"></i></h3>
 
   <%= image_tag(@product.image_url) %>
   <p>Merchant: <%= link_to @product.merchant.name, merchant_path(@product.merchant) %></p>
   <p><%= @product.description %></p>
-  <p>Cost: <%= @product.price.round(2) %></p>
+  <p>Cost: $<%= sprintf("%.2f", @product.price) %></p>
   <p><%= @product.quantity %> in stock</p>
   <p>Categories: <% @product.categories.each do |c| %><%= c.name %><% end %></p>
   <p>Quantity:</p>
@@ -22,7 +22,7 @@
 
 <section class="row review">
 
-  <h3><i class="em em-scream"></i>Review This Product<i class="em em-scream"></i></h3>
+  <h3><i class="em em-scream"></i> Review This Product <i class="em em-scream"></i></h3>
   <p>
     Average spookiness: <% @product.rating.times do %><i class="em em-scream"></i><% end %>
   </p>

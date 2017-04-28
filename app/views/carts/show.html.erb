@@ -26,7 +26,7 @@
 <% end %>
 
 <p>
-  Your subtotal is <%= @order.subtotal %> ghost dollas
+  Your subtotal is $<%= sprintf("%.2f", @order.subtotal) %> ghost dollas
 </p>
 
 <p>

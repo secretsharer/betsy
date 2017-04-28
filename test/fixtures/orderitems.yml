@@ -10,6 +10,16 @@ two:
   order: one
   product: banana
 
+three:
+  quantity: 4
+  order: two
+  product: banana
+
+four:
+  quantity: 2
+  order: one
+  product: apple
+
 
 fakeorder:
   quantity: 1

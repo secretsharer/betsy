@@ -11,10 +11,6 @@ class MerchantsController < ApplicationController
     @merchants = Merchant.all
   end
 
-  def new
-    @merchant = Merchant.new
-  end
-
   def create
     @merchant = Merchant.create merchant_params
     @merchant.name = @merchant.username
@@ -37,6 +33,7 @@ class MerchantsController < ApplicationController
   def edit; end
 
   def update
+
     @merchant.name = merchant_params[:name]
     @merchant.username = merchant_params[:username]
     @merchant.email  = merchant_params[:email]
