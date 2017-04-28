@@ -3,45 +3,68 @@ require "test_helper"
 describe MerchantsController do
 
   it "should get index" do
+    #passes
     get merchants_path
     must_respond_with :success
   end
 
   it "should show one merchant" do
+    #passes
     get merchant_path(merchants(:dan))
     must_respond_with :success
   end
 
   it "should show 404 if merchant not found" do
+    #passes
     get merchant_path(305)
     must_respond_with :missing
   end
 
   it "should get edit" do
-    #is this test right?
-    get merchant_path(merchants(:dan))
+    #passes
+    login_user(merchants(:dan))
+    get edit_merchant_path(merchants(:dan))
     must_respond_with :success
   end
 
-  it "should show the new merchant form" do
-    get new_merchant_path
-    must_respond_with :success
+  it "should update a merchant's info" do
+    login_user(merchants(:dan))
+    dan = merchants(:dan)
+    puts "#{dan.name}"
+    put merchant_path(dan.id), params: {
+      merchant:
+      { name: "ME" }
+    }
+    dan.reload
+    puts "#{dan.name}"
+
+
+    must_redirect_to merchant_path(merchants(:dan))
   end
 
-  it "should redirect to merchant index after adding a valid merchant" do
+  it "should redirect to merchant index after creating merchant" do
+    #this test is run through sessions and the create action is tested in the sessions controller test (creating a user when you login to Github)
+    #passes
     post merchants_path params: {merchant:
       { username: "peeves",
         email: "peeves@hogwarts.com",
         uid: 49,
         provider: "cool"
-
       }
     }
     must_redirect_to merchants_path
   end
 
-  it "should render the page if the new merchant info is not valid" do
-    skip
+  it "should flash an error page if new merchant info is not valid" do
+    post merchants_path params: {merchant:
+      { username: nil,
+        email: "peeves@hogwarts.com",
+        uid: 49,
+        provider: "cool"
+      }
+    }
+
+    flash[:error].must_equal "Merchant not created. Ghosts must be mad."
   end
 
   it "should affect the model when adding a merchant" do

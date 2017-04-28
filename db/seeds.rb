@@ -58,13 +58,31 @@ merchants.each do |merchant|
 end
 
 
+categories = [
+  { name: "haunting"},
+  { name: "anti human"},
+  { name: "slime"},
+  { name: "sound effects"},
+  { name: "curses"},
+  { name: "pranks"},
+  { name: "chills"},
+  { name: "anti-ghost detection"},
+
+]
+
+categories.each do |category|
+  Category.create(category)
+end
+
+puts Category.all.length
+
 products = [
   { name: "ghost hat",
     price: 4.50,
     quantity: 10,
     merchant_id: 2,
     description: "a beautiful spooky hat",
-    image_url: "http://www.villagehatshop.com/photos/product/standard/4511390S61882/big-size-hats/victorian-wool-felt-top-hat.jpg"
+    image_url: "http://www.villagehatshop.com/photos/product/standard/4511390S61882/big-size-hats/victorian-wool-felt-top-hat.jpg",
   },
 
   { name: "mirror lipstick",
@@ -185,29 +203,18 @@ products = [
   }
 
 
-
 ]
 
 
-
-products.each do |product|
-  Product.create(product)
+Category.all.each do |c|
+  puts c.name
+  puts c.id
 end
 
 
-categories = [
-  { name: "haunting"},
-  { name: "anti human"},
-  { name: "slime"},
-  { name: "sound effects"},
-  { name: "relics"},
-  { name: "curses"},
-  { name: "pranks"},
-  { name: "chills"},
-  { name: "anti-ghost detection"},
-
-]
-
-categories.each do |category|
-  Category.create(category)
+products.each do |product|
+  p = Product.create(product)
+  puts "#{p.name}"
+  p.categories << Category.find_by_id(rand(1..4))
+  p.categories << Category.find_by_id(rand(5..8))
 end
