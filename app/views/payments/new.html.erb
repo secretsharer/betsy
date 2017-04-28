@@ -4,6 +4,7 @@
 <h2>Pay Now</h2>
 
 <%= form_for :order, method: :patch do |f| %>
+<%= f.hidden_field :order_id, value: current_order.id %>
 
 <%= f.label "Email" %>
 <%= f.text_field :email %><br />
