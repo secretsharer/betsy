@@ -13,6 +13,11 @@ describe ProductsController do
     must_respond_with :success
   end
 
+  it "should only get active products, not retired products" do
+    skip
+    #what to test?
+  end
+
   it "should show an individual product" do
     #passes
     get product_path(products(:apple).id)
@@ -23,19 +28,17 @@ describe ProductsController do
     #passes
     #need to login user so that it doesn't throw an error
     login_user(merchants(:dan))
-    get edit_merchant_product_path(products(:apple).merchant.id, products(:apple).id)
+    get edit_merchant_product_path(merchants(:dan).id, products(:apple).id)
     must_respond_with :success
   end
 
   it "update should update a product or render edit" do
     #passes
     login_user(merchants(:dan))
-    patch product_path(products(:banana).id), params: {product: { quantity: 2 } }
-    puts "#{flash[:success]}"
-    puts "#{flash.now[:error]}"
+    put merchant_product_path(merchants(:dan).id, products(:banana).id), params: {product: { quantity: 2 } }
     must_respond_with :found
     must_respond_with :redirect
-    must_redirect_to merchant_products_path(merchants(:dan).id, products(:banana).id )
+    must_redirect_to merchant_products_path(merchants(:dan).id)
   end
 
 
@@ -70,6 +73,29 @@ describe ProductsController do
           quantity: 0
      }  }
    }.must_change 'Product.count', 0
+  end
+
+  it "should retire a product that is active" do
+    skip
+    #this test sucks
+    apple = products(:apple)
+    puts apple.status
+    apple.status.must_equal true
+    login_user(merchants(:dan))
+    patch product_status_path(merchants(:dan), apple.id)
+    puts apple.status
+    puts "flash: #{flash[:success]}"
+    puts "flash error: #{flash[:error]}"
+    puts apple.status
+    apple.status.must_equal false
+  end
+
+  it "should not remove a retired product from the database" do
+
+  end
+
+  it "should make active a product that is retired" do
+    
   end
 
 end
