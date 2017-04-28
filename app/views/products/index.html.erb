@@ -8,7 +8,7 @@
 <% @active_products.each do |product| %>
 <section class="top columns large-4 small-12 product" >
   <ul>
-    <li><%= image_tag(product.image_url) %></li>
+    <li class="index_img"><%= image_tag(product.image_url) %></li>
     <h3><li><%= link_to product.name, product_path(product) %></li></h3>
     <p>Merchant: <%= link_to product.merchant.name, merchant_path(product.merchant) %></p>
   </ul>
