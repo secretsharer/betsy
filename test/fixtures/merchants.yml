@@ -5,6 +5,7 @@
 # below each fixture, per the syntax in the comments below
 #
 dan:
+  name: Dan
   username: dan
   email: dan@ada.org
   uid: 12

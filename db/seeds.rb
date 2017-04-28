@@ -70,8 +70,8 @@ products = [
   { name: "mirror lipstick",
     price: 9.95,
     quantity: 1000,
-    merchant_id: 3,
-    description:    "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
+    merchant_id: 1,
+    description: "Are you 100% transparent and looking to discreetly scrawl that real-time scary message in the mirror right in front of someone's eyes? We’ve now extended our line of lipstick shades exclusively for this purpose!",
     image_url: "http://suziecheel.com/wp-content/uploads/2016/01/mirror-enough.jpg"
   },
 
@@ -181,7 +181,9 @@ products = [
     merchant_id: 5,
     description: "Use it to woo your love from beyond",
     image_url: "https://c1.staticflickr.com/7/6230/6296252809_76656f781b_b.jpg"
+
   }
+
 
 
 ]

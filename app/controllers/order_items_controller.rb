@@ -1,7 +1,6 @@
 class OrderItemsController < ApplicationController
   skip_before_action :require_login
 
-
   def create
 
     #i think this logic is checking to see if you have an Orderitem of this Product type already associated with this Order
