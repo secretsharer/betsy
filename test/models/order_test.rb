@@ -4,13 +4,8 @@ describe Order do
   let(:order) { Order.new }
 
   it "A new order is created when session starts" do
-
   end
 
-  it "can add a product" do
-    orders(:one).add_product(products(:apple), 3)
-    orders
-  end
 
   it "has an order status" do
 
