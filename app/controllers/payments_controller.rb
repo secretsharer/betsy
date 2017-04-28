@@ -10,7 +10,7 @@ class PaymentsController < ApplicationController
   def update
     order = Order.find_by_id(session[:order_id])
 
-    order.status = "PAID"
+    order.status = "paid"
     order.email = params[:order][:email]
     order.address = params[:order][:address]
     order.cc_num = params[:order][:cc_num]
