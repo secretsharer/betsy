@@ -24,23 +24,22 @@ class ProductsController < ApplicationController
   def edit; end
 
   def update
-    params[:product][:categories].each do |category|
-      if category != ""
-        @product.categories << Category.find_by_id(category)
+    if params[:product][:categories] != nil
+      params[:product][:categories].each do |category|
+        if category != ""
+          @product.categories << Category.find_by_id(category)
+        end
       end
     end
 
     if @product.update product_params
-      redirect_to product_path
+
+      flash[:success] = "Product #{@product.name} successfully updated!"
+      redirect_to merchant_products_path(@product.merchant.id, @product.id), method: :get
     else
+      flash.now[:error] = "Sorry, something went wrong and we couldn't edit that product"
       render 'edit'
     end
-  end
-
-  def destroy
-    Product.destroy(params[:id])
-
-    redirect_to products_path
   end
 
   def new
@@ -50,9 +49,11 @@ class ProductsController < ApplicationController
   def create
     product = Product.new product_params
     product.merchant_id = current_merchant.id
-    params[:product][:categories].each do |category|
-      if category != ""
-        product.categories << Category.find_by_id(category)
+    if params[:product][:categories] != nil
+      params[:product][:categories].each do |category|
+        if category != ""
+          product.categories << Category.find_by_id(category)
+        end
       end
     end
 
